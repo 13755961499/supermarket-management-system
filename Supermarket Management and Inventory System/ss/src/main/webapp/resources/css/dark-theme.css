@@ -39,24 +39,66 @@ div#menu-container {
     background: linear-gradient(135deg, rgba(59, 130, 246, 0.3) 0%, rgba(37, 99, 235, 0.3) 100%) !important;
 }
 
-/* 下拉菜单背景 */
-#menu-container .dropdown-menu {
-    background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%) !important;
-    border: none !important;
-    border-top: 2px solid #3b82f6 !important;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6) !important;
+/* ... existing code ... */
+
+/* 下拉菜单背景 - 白色主题（统一所有页面） */
+#menu-container .dropdown-menu,
+.dropdown-menu,
+.navbar .dropdown-menu,
+.nav .dropdown-menu {
+    background: #ffffff !important;
+    background-image: none !important;
+    border: 1px solid #e5e7eb !important;
+    border-top: 3px solid #3b82f6 !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
+    border-radius: 8px !important;
+    min-width: 160px !important;
+    padding: 8px 0 !important;
+    margin: 0 !important;
 }
 
-/* 下拉菜单项 */
-#menu-container .dropdown-item {
-    color: #94a3b8 !important;
+/* 下拉菜单项 - 黑色字体 */
+#menu-container .dropdown-item,
+.dropdown-item,
+#menu-container .dropdown-menu a,
+.dropdown-menu a,
+.navbar .dropdown-menu a,
+.nav .dropdown-menu a,
+#menu-container .dropdown-menu .dropdown-item,
+.navbar .dropdown-menu .dropdown-item {
+    color: #1f2937 !important;
     background: transparent !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    padding: 10px 20px !important;
+    display: block !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+    line-height: 1.6 !important;
 }
 
-#menu-container .dropdown-item:hover {
-    color: #ffffff !important;
-    background: rgba(59, 130, 246, 0.2) !important;
+#menu-container .dropdown-item:hover,
+.dropdown-item:hover,
+#menu-container .dropdown-menu a:hover,
+.dropdown-menu a:hover,
+.navbar .dropdown-menu a:hover,
+.nav .dropdown-menu a:hover,
+#menu-container .dropdown-menu .dropdown-item:hover,
+.navbar .dropdown-menu .dropdown-item:hover {
+    color: #3b82f6 !important;
+    background: #f3f4f6 !important;
 }
+
+/* 下拉菜单标题 */
+#menu-container .dropdown-menu h5,
+.dropdown-menu h5,
+.navbar .dropdown-menu h5 {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+}
+
+/* ... existing code ... */
+
 
 /* 面包屑导航 */
 #breadcrumb-container {
