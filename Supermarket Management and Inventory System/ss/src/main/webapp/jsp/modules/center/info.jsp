@@ -139,9 +139,12 @@
 		position: relative !important;
 		z-index: 1 !important;
 	}
+
+	/* 表单主体 */
 	#addOrUpdateForm {
-		max-width: 800px !important;
+		max-width: 600px !important;
 		width: 100% !important;
+		text-align: center !important;
 		margin: 0 auto !important;
 		background: rgba(255, 255, 255, 0.98) !important;
 		backdrop-filter: blur(20px) !important;
@@ -150,7 +153,7 @@
 		box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.5) inset !important;
 		border: none !important;
 		position: relative !important;
-		overflow: hidden !important;
+		overflow: visible !important;
 	}
 
 	/* 顶部装饰条 */
@@ -162,25 +165,43 @@
 		right: 0 !important;
 		height: 6px !important;
 		background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%) !important;
+		border-radius: 24px 24px 0 0 !important;
 	}
 
-	/* 表单标题 - 个人信息用 */
+	/* 隐藏原来的 ::after 伪元素 */
 	#addOrUpdateForm::after {
-		content: '👤 修改个人信息' !important;
-		display: block !important;
+		display: none !important;
+	}
+
+	/* 标题样式 */
+	.form-title {
 		text-align: center !important;
 		font-size: 28px !important;
 		font-weight: 700 !important;
 		color: #1f2937 !important;
-		margin-bottom: 40px !important;
+		margin: 20px 0 40px 0 !important;
 		letter-spacing: 1px !important;
+		display: block !important;
 	}
 
-	/* 表单项 */
-	.form-item {
-		margin-bottom: 32px !important;
-		position: relative !important;
+	/* 表单布局 - 垂直排列 */
+	#addOrUpdateForm form {
+		display: flex !important;
+		flex-direction: column !important;
+		gap: 0 !important;
 	}
+
+	/* 表单项 - 垂直排列 */
+	.form-item {
+		margin-bottom: 28px !important;
+		position: relative !important;
+		width: 100% !important;
+	}
+
+	.form-item:last-of-type {
+		margin-bottom: 36px !important;
+	}
+
 	.form-item label {
 		display: flex !important;
 		align-items: center !important;
@@ -221,7 +242,8 @@
 
 	/* 按钮容器 */
 	.form-btn {
-		margin-top: 48px !important;
+		margin-top: 40px !important;
+		margin-bottom: 0 !important;
 		text-align: center !important;
 		display: flex !important;
 		gap: 16px !important;
@@ -334,6 +356,7 @@
 		<!-- Main Content -->
 		<div id="add-container">
 			<form id="addOrUpdateForm">
+				<h2 class="form-title">👤 修改个人信息</h2>
 				<input id="updateId" name="id" type="hidden">
 				<div class="form-item">
 					<label>用户名</label>
