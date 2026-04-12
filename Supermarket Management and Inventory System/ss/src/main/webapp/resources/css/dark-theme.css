@@ -43,7 +43,13 @@ body #menu-container li.nav-item.dropdown > a,
     text-decoration: none !important;
 }
 
-/* ... existing code ... */
+/* 菜单项间距 - 所有菜单项之间添加间隙 */
+#menu-container .nav-item,
+#menu-container li.nav-item.dropdown,
+#navUl .nav-item,
+.navbar-nav .nav-item {
+    margin: 0 4px !important;
+}
 
 /* 菜单项悬停效果 */
 #menu-container .nav-item > a:hover,
