@@ -1,0 +1,106 @@
+@startuml
+skinparam backgroundColor #FFFFFF
+skinparam componentStyle uml2
+
+skinparam class {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    BorderThickness 1
+    FontSize 10
+}
+
+title 图2-1 系统用例图
+
+left to right direction
+
+@startuml
+skinparam backgroundColor #FFFFFF
+skinparam componentStyle uml2
+
+skinparam class {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    BorderThickness 1
+    FontSize 10
+}
+
+title 图2-1 系统用例图
+
+left to right direction
+
+actor 管理员 #FFFFFF;line:#000000
+actor 员工   #FFFFFF;line:#000000
+actor 经理   #FFFFFF;line:#000000
+
+rectangle 超市管理系统 {
+    usecase 用户登录 as UC1
+    usecase 用户管理 as UC2
+    usecase 员工管理 as UC3
+    usecase 商品分类管理 as UC4
+    usecase 商品信息管理 as UC5
+    usecase 商品入库 as UC6
+    usecase 商品销售 as UC7
+    usecase 商品收银 as UC8
+    usecase 销售记录查询 as UC9
+    usecase 供应商管理 as UC10
+    usecase 缺货提醒 as UC11
+    usecase 销售统计 as UC12
+}
+
+管理员 --> UC1
+管理员 --> UC2
+管理员 --> UC3
+管理员 --> UC4
+管理员 --> UC5
+管理员 --> UC10
+管理员 --> UC12
+
+员工 --> UC1
+员工 --> UC5
+员工 --> UC6
+员工 --> UC7
+员工 --> UC8
+员工 --> UC9
+
+经理 --> UC1
+经理 --> UC11
+经理 --> UC12
+
+@enduml
+
+
+rectangle 超市管理系统 {
+    usecase 用户登录 as UC1
+    usecase 用户管理 as UC2
+    usecase 员工管理 as UC3
+    usecase 商品分类管理 as UC4
+    usecase 商品信息管理 as UC5
+    usecase 商品入库 as UC6
+    usecase 商品销售 as UC7
+    usecase 商品收银 as UC8
+    usecase 销售记录查询 as UC9
+    usecase 供应商管理 as UC10
+    usecase 缺货提醒 as UC11
+    usecase 销售统计 as UC12
+}
+
+管理员 --> UC1
+管理员 --> UC2
+管理员 --> UC3
+管理员 --> UC4
+管理员 --> UC5
+管理员 --> UC10
+管理员 --> UC12
+
+员工 --> UC1
+员工 --> UC5
+员工 --> UC6
+员工 --> UC7
+员工 --> UC8
+员工 --> UC9
+
+经理 --> UC1
+经理 --> UC11
+经理 --> UC12
+
+@enduml

@@ -1,0 +1,177 @@
+@startuml
+!theme plain
+skinparam backgroundColor #FFFFFF
+skinparam entity {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    BorderThickness 1
+    FontName SimSun
+    FontSize 10
+}
+
+title 实体设计图 - 超市管理系统
+
+hide circle
+hide methods
+
+' ===== 用户实体 =====
+entity "Users\n用户" as users {
+    *id : Long <<PK>>  主键ID
+    --
+    username : String      用户名
+    password : String      密码
+    role : String          角色
+    addtime : Date         添加时间
+}
+
+' ===== 员工实体 =====
+entity "Yuangong\n员工" as yuangong {
+    *id : Long <<PK>>  主键ID
+    --
+    yuangonggonghao : String    员工工号
+    yuangongxingming : String   员工姓名
+    mima : String               密码
+    xingbie : String            性别
+    touxiang : String           头像
+    nianling : Integer          年龄
+    dianhuahaoma : String       电话号码
+    addtime : Date              添加时间
+}
+
+' ===== 经理实体 =====
+entity "Jingli\n经理" as jingli {
+    *id : Long <<PK>>  主键ID
+    --
+    jinglizhanghao : String     经理账号
+    jinglixingming : String     经理姓名
+    mima : String               密码
+    xingbie : String            性别
+    touxiang : String           头像
+    dianhuahaoma : String       电话号码
+    addtime : Date              添加时间
+}
+
+' ===== 供应商实体 =====
+entity "Gongyingshang\n供应商" as gongyingshang {
+    *id : Long <<PK>>  主键ID
+    --
+    gongyingshangbianhao : String   供应商编号
+    gongyingshangmingcheng : String 供应商名称
+    gongsidizhi : String            公司地址
+    lianxidianhua : String          联系电话
+    beizhu : String                备注
+    jinglizhanghao : String        经理账号
+    jinglixingming : String         经理姓名
+    addtime : Date                  添加时间
+}
+
+' ===== 商品分类实体 =====
+entity "Shangpinfenlei\n商品分类" as shangpinfenlei {
+    *id : Long <<PK>>  主键ID
+    --
+    shangpinfenlei : String   商品分类名称
+    addtime : Date            添加时间
+}
+
+' ===== 商品信息实体 =====
+entity "Shangpinxinxi\n商品信息" as shangpinxinxi {
+    *id : Long <<PK>>  主键ID
+    --
+    shangpinbianhao : String      商品编号
+    shangpinmingcheng : String    商品名称
+    shangpinfenlei : String       商品分类
+    jiage : Float                 价格
+    tupian : String               图片
+    shuliang : Integer            数量/库存
+    shangpinxiangqing : String    商品详情
+    yuangonggonghao : String      员工工号
+    yuangongxingming : String     员工姓名
+    addtime : Date                添加时间
+}
+
+' ===== 商品入库实体 =====
+entity "Shangpinruku\n商品入库" as shangpinruku {
+    *id : Long <<PK>>  主键ID
+    --
+    rukubianhao : String          入库编号
+    shangpinmingcheng : String    商品名称
+    shangpinfenlei : String       商品分类
+    shuliang : Integer            数量
+    rukushijian : Date             入库时间
+    yuangonggonghao : String      员工工号
+    addtime : Date                添加时间
+}
+
+' ===== 商品销售实体 =====
+entity "Shangpinxiaoshou\n商品销售" as shangpinxiaoshou {
+    *id : Long <<PK>>  主键ID
+    --
+    xiaoshoudanhao : String       销售单号
+    shangpinmingcheng : String    商品名称
+    shangpinfenlei : String       商品分类
+    shuliang : Integer            数量
+    yuangongxingming : String     员工姓名
+    xiaoshoushijian : Date        销售时间
+    yuangonggonghao : String      员工工号
+    addtime : Date                添加时间
+}
+
+' ===== 商品收银实体 =====
+entity "Shangpinshouyin\n商品收银" as shangpinshouyin {
+    *id : Long <<PK>>  主键ID
+    --
+    xiaoshoudanhao : String       销售单号
+    shangpinmingcheng : String    商品名称
+    shangpinfenlei : String       商品分类
+    shuliang : Integer            数量
+    jiage : Float                 单价
+    zongjine : Float              总金额
+    shouyinshijian : Date         收银时间
+    yuangonggonghao : String      员工工号
+    yuangongxingming : String     员工姓名
+    addtime : Date                添加时间
+}
+
+' ===== 缺货提醒实体 =====
+entity "Quehuotixing\n缺货提醒" as quehuotixing {
+    *id : Long <<PK>>  主键ID
+    --
+    tixingbianhao : String        提醒编号
+    shangpinmingcheng : String    商品名称
+    shangpinfenlei : String       商品分类
+    shuliang : Integer            数量
+    tixingshijian : Date          提醒时间
+    jinglizhanghao : String       经理账号
+    jinglixingming : String       经理姓名
+    yuangonggonghao : String      员工工号
+    yuangongxingming : String     员工姓名
+    addtime : Date                添加时间
+}
+
+' ===== 实体关系定义 =====
+
+' 用户与员工、经理的归属关系
+users ||--o{ yuangong : "1:N\n员工归属"
+users ||--o{ jingli : "1:N\n经理归属"
+
+' 经理管理供应商
+jingli |o--o{ gongyingshang : "1:N\n管理供应商"
+
+' 员工操作关系
+yuangong |o--o{ shangpinxinxi : "1:N\n添加商品"
+yuangong |o--o{ shangpinruku : "1:N\n执行入库"
+yuangong |o--o{ shangpinshouyin : "1:N\n执行收银"
+yuangong |o--o{ shangpinxiaoshou : "1:N\n记录销售"
+yuangong |o--o{ quehuotixing : "1:N\n发起提醒"
+
+' 商品分类关联
+shangpinfenlei |o--o{ shangpinxinxi : "1:N\n商品分类"
+shangpinfenlei |o--o{ shangpinruku : "1:N\n入库记录"
+shangpinfenlei |o--o{ shangpinshouyin : "1:N\n收银记录"
+shangpinfenlei |o--o{ shangpinxiaoshou : "1:N\n销售记录"
+shangpinfenlei |o--o{ quehuotixing : "1:N\n提醒记录"
+
+' 经理接收缺货提醒
+jingli |o--o{ quehuotixing : "1:N\n接收提醒"
+
+@enduml

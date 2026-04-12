@@ -1,0 +1,96 @@
+@startuml
+!theme plain
+skinparam backgroundColor #FFFFFF
+skinparam actorStyle awesome
+
+skinparam actor {
+    BackgroundColor #E0E0E0
+    BorderColor #000000
+    FontName SimSun
+    FontSize 11
+}
+
+skinparam usecase {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    FontName SimSun
+    FontSize 10
+}
+
+title 系统总体用例图 - 超市管理系统
+
+actor 管理员 #FFCCCC
+actor 经理 #CCFFCC
+actor 员工 #CCCCFF
+
+rectangle "超市管理系统" {
+    
+    ' 用户管理用例
+    (用户登录) as login
+    (用户登出) as logout
+    (个人信息管理) as profile
+    (修改密码) as password
+    
+    ' 管理员用例
+    (用户管理) as user_mgmt
+    (员工管理) as emp_mgmt
+    (经理管理) as mgr_mgmt
+    
+    ' 经理/员工共用用例
+    (供应商管理) as supplier_mgmt
+    (商品分类管理) as category_mgmt
+    (商品信息管理) as product_mgmt
+    (商品入库) as warehousing
+    (商品收银) as checkout
+    (商品销售) as sales
+    (缺货提醒) as stock_alert
+    
+    ' 经理专用用例
+    (销售统计) as sales_stats
+}
+
+' 管理员关系
+管理员 --> login
+管理员 --> logout
+管理员 --> profile
+管理员 --> password
+管理员 --> user_mgmt
+管理员 --> emp_mgmt
+管理员 --> mgr_mgmt
+管理员 --> supplier_mgmt
+管理员 --> category_mgmt
+管理员 --> product_mgmt
+管理员 --> warehousing
+管理员 --> checkout
+管理员 --> sales
+管理员 --> stock_alert
+管理员 --> sales_stats
+
+' 经理关系
+经理 --> login
+经理 --> logout
+经理 --> profile
+经理 --> password
+经理 --> supplier_mgmt
+经理 --> category_mgmt
+经理 --> product_mgmt
+经理 --> warehousing
+经理 --> checkout
+经理 --> sales
+经理 --> stock_alert
+经理 --> sales_stats
+
+' 员工关系
+员工 --> login
+员工 --> logout
+员工 --> profile
+员工 --> password
+员工 --> product_mgmt
+员工 --> warehousing
+员工 --> checkout
+员工 --> sales
+
+' 扩展关系
+checkout .up.> stock_alert : <<extends>> 库存不足时触发
+
+@enduml

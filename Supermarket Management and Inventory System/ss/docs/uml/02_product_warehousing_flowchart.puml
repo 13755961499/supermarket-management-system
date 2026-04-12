@@ -1,0 +1,59 @@
+@startuml
+!theme plain
+skinparam backgroundColor #FFFFFF
+skinparam activityStyle roundbox
+skinparam roundbox {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    FontName SimSun
+    FontSize 10
+}
+
+title 商品入库流程图
+
+start
+:员工/经理进入系统;
+:选择"商品入库"功能;
+
+:显示商品入库页面;
+:输入入库信息;
+
+:填写入库单;
+note right
+  - 入库编号 (系统自动生成)
+  - 商品名称 (选择/输入)
+  - 商品分类 (自动带出/选择)
+  - 入库数量
+  - 入库时间
+end note
+
+:提交入库申请;
+:调用后端保存接口;
+
+:后端接收数据;
+:验证数据合法性;
+if (验证通过?) then (否)
+    :返回验证失败信息;
+    :显示错误提示;
+    stop
+endif
+
+:保存入库记录;
+note right
+  写入 shangpinruku 表
+end note
+
+:更新商品库存;
+note right
+  在 Shangpinxinxi 表中
+  增加商品数量
+end note
+
+:返回保存成功;
+:显示成功消息;
+:刷新入库记录列表;
+
+:入库流程完成;
+stop
+
+@enduml

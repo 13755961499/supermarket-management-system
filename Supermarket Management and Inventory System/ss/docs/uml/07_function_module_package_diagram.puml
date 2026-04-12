@@ -1,0 +1,90 @@
+@startuml
+!theme plain
+skinparam packageStyle rectangle
+skinparam backgroundColor #FFFFFF
+skinparam componentStyle uml2
+
+skinparam class {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    BorderThickness 1
+    FontName SimSun
+    FontSize 10
+}
+
+title 系统功能模块包图 - 超市管理系统
+
+package "用户管理模块" #F0F0F0 {
+    class "UsersController\n用户管理"
+    class "UsersService"
+    class "UsersEntity"
+}
+
+package "员工管理模块" #F0F0F0 {
+    class "YuangongController\n员工管理"
+    class "YuangongService"
+    class "YuangongEntity"
+}
+
+package "经理管理模块" #F0F0F0 {
+    class "JingliController\n经理管理"
+    class "JingliService"
+    class "JingliEntity"
+}
+
+package "供应商管理模块" #F0F0F0 {
+    class "GongyingshangController\n供应商管理"
+    class "GongyingshangService"
+    class "GongyingshangEntity"
+}
+
+package "商品分类管理模块" #F0F0F0 {
+    class "ShangpinfenleiController\n商品分类管理"
+    class "ShangpinfenleiService"
+    class "ShangpinfenleiEntity"
+}
+
+package "商品信息管理模块" #F0F0F0 {
+    class "ShangpinxinxiController\n商品信息管理"
+    class "ShangpinxinxiService"
+    class "ShangpinxinxiEntity"
+}
+
+package "商品入库模块" #F0F0F0 {
+    class "ShangpinrukuController\n商品入库"
+    class "ShangpinrukuService"
+    class "ShangpinrukuEntity"
+}
+
+package "商品收银模块" #F0F0F0 {
+    class "ShangpinshouyinController\n商品收银"
+    class "ShangpinshouyinService"
+    class "ShangpinshouyinEntity"
+}
+
+package "商品销售模块" #F0F0F0 {
+    class "ShangpinxiaoshouController\n商品销售"
+    class "ShangpinxiaoshouService"
+    class "ShangpinxiaoshouEntity"
+}
+
+package "缺货提醒模块" #F0F0F0 {
+    class "QuehuotixingController\n缺货提醒"
+    class "QuehuotixingService"
+    class "QuehuotixingEntity"
+}
+
+package "公共模块" #F0F0F0 {
+    class "CommonController\n通用操作"
+    class "ConfigController\n系统配置"
+    class "FileController\n文件上传"
+    class "TokenService\n令牌服务"
+}
+
+' 模块间依赖关系
+商品入库模块 .left.> 商品信息管理模块 : 更新库存
+商品收银模块 .left.> 商品信息管理模块 : 更新库存
+商品收银模块 .down.> 缺货提醒模块 : 触发提醒
+供应商管理模块 .up.> 经理管理模块 : 经理关联
+
+@enduml

@@ -1,0 +1,147 @@
+@startuml
+skinparam backgroundColor #FFFFFF
+
+skinparam entity {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    BorderThickness 1
+    FontSize 9
+}
+
+title 图3-2 实体关系图
+
+hide circle
+hide methods
+
+entity "Users用户" as users {
+    *id : Long
+    username : String
+    password : String
+    role : String
+    addtime : Date
+}
+
+entity "Yuangong员工" as yuangong {
+    *id : Long
+    yuangonggonghao : String
+    yuangongxingming : String
+    mima : String
+    xingbie : String
+    touxiang : String
+    nianling : Integer
+    dianhuahaoma : String
+    addtime : Date
+}
+
+entity "Jingli经理" as jingli {
+    *id : Long
+    jinglizhanghao : String
+    jinglixingming : String
+    mima : String
+    xingbie : String
+    touxiang : String
+    dianhuahaoma : String
+    addtime : Date
+}
+
+entity "Gongyingshang供应商" as gongyingshang {
+    *id : Long
+    gongyingshangbianhao : String
+    gongyingshangmingcheng : String
+    gongsidizhi : String
+    lianxidianhua : String
+    beizhu : String
+    *jinglizhanghao : String
+    jinglixingming : String
+    addtime : Date
+}
+
+entity "Shangpinfenlei商品分类" as shangpinfenlei {
+    *id : Long
+    shangpinfenlei : String
+    addtime : Date
+}
+
+entity "Shangpinxinxi商品信息" as shangpinxinxi {
+    *id : Long
+    shangpinbianhao : String
+    shangpinmingcheng : String
+    *shangpinfenlei : String
+    jiage : Float
+    tupian : String
+    shuliang : Integer
+    shangpinxiangqing : String
+    *yuangonggonghao : String
+    yuangongxingming : String
+    addtime : Date
+}
+
+entity "Shangpinruku商品入库" as shangpinruku {
+    *id : Long
+    rukubianhao : String
+    shangpinmingcheng : String
+    shangpinfenlei : String
+    shuliang : Integer
+    rukushijian : Date
+    addtime : Date
+}
+
+entity "Shangpinshouyin商品收银" as shangpinshouyin {
+    *id : Long
+    xiaoshoudanhao : String
+    shangpinmingcheng : String
+    shangpinfenlei : String
+    shuliang : Integer
+    jiage : Float
+    zongjine : Float
+    shouyinshijian : Date
+    *yuangonggonghao : String
+    yuangongxingming : String
+    addtime : Date
+}
+
+entity "Shangpinxiaoshou商品销售" as shangpinxiaoshou {
+    *id : Long
+    xiaoshoudanhao : String
+    shangpinmingcheng : String
+    shangpinfenlei : String
+    shuliang : Integer
+    yuangongxingming : String
+    xiaoshoushijian : Date
+    *yuangonggonghao : String
+    addtime : Date
+}
+
+entity "Quehuotixing缺货提醒" as quehuotixing {
+    *id : Long
+    tixingbianhao : String
+    shangpinmingcheng : String
+    shangpinfenlei : String
+    shuliang : Integer
+    tixingshijian : Date
+    *jinglizhanghao : String
+    jinglixingming : String
+    *yuangonggonghao : String
+    yuangongxingming : String
+    addtime : Date
+}
+
+users ||--o{ yuangong
+users ||--o{ jingli
+
+yuangong ||--o{ shangpinxinxi
+yuangong ||--o{ shangpinruku
+yuangong ||--o{ shangpinshouyin
+yuangong ||--o{ shangpinxiaoshou
+yuangong ||--o{ quehuotixing
+
+jingli ||--o{ gongyingshang
+jingli ||--o{ quehuotixing
+
+shangpinfenlei ||--o{ shangpinxinxi
+shangpinfenlei ||--o{ shangpinruku
+shangpinfenlei ||--o{ shangpinshouyin
+shangpinfenlei ||--o{ shangpinxiaoshou
+shangpinfenlei ||--o{ quehuotixing
+
+@enduml

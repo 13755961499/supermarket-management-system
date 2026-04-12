@@ -1,0 +1,36 @@
+@startuml
+skinparam backgroundColor #FFFFFF
+
+skinparam activity {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    BorderThickness 1
+    ArrowColor #000000
+}
+
+title 图4-1 商品销售流程图
+
+start
+:收银员扫描商品条码;
+:系统查询商品信息;
+if (商品存在?) then (是)
+    :显示商品名称、价格;
+    :确认销售数量;
+    :计算总金额;
+    :选择支付方式;
+    if (支付成功?) then (是)
+        :生成销售单号;
+        :更新商品库存;
+        :记录销售信息;
+        :打印销售小票;
+        :销售完成;
+    else (否)
+        :提示支付失败;
+        :取消本次销售;
+    endif
+else (否)
+    :提示商品不存在;
+endif
+stop
+
+@enduml

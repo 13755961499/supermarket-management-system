@@ -1,0 +1,58 @@
+@startuml
+!theme plain
+skinparam backgroundColor #FFFFFF
+skinparam activityStyle roundbox
+skinparam roundbox {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    FontName SimSun
+    FontSize 10
+}
+
+title 系统登录流程图
+
+start
+:用户访问系统;
+:显示登录页面;
+
+:输入用户名和密码;
+if (输入验证?) then (失败)
+    :显示输入错误提示;
+    :返回登录页面;
+    stop
+endif
+
+:提交登录请求;
+:调用后端登录接口;
+
+:查询用户信息;
+if (用户存在?) then (否)
+    :返回"用户不存在";
+    :显示错误提示;
+    stop
+endif
+
+:验证密码;
+if (密码正确?) then (否)
+    :返回"密码错误";
+    :显示错误提示;
+    stop
+endif
+
+:验证用户角色;
+:生成Token令牌;
+:返回登录成功信息;
+
+:根据角色跳转对应页面;
+if (角色判断) then (管理员)
+    :进入管理员主页;
+elseif (经理)
+    :进入经理主页;
+else (员工)
+    :进入员工主页;
+endif
+
+:登录成功，显示功能菜单;
+stop
+
+@enduml

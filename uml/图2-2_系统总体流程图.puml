@@ -1,0 +1,35 @@
+@startuml
+skinparam backgroundColor #FFFFFF
+
+skinparam activity {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    BorderThickness 1
+    ArrowColor #000000
+}
+
+title 图2-2 系统总体流程图
+
+start
+:系统登录;
+if (登录成功?) then (是)
+    :获取用户角色;
+    if (角色是管理员) then (管理员)
+        :进入管理界面;
+    elseif (角色是员工) then (员工)
+        :进入员工界面;
+    elseif (角色是经理) then (经理)
+        :进入经理界面;
+    endif
+    :选择功能模块;
+    :执行相应业务操作;
+    :返回处理结果;
+    :更新数据库;
+else (否)
+    :提示登录失败;
+    :返回登录界面;
+endif
+:系统登出;
+stop
+
+@enduml

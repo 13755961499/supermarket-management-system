@@ -1,0 +1,157 @@
+@startuml
+skinparam backgroundColor #FFFFFF
+
+skinparam entity {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    BorderThickness 1
+    FontSize 9
+}
+
+title 图3-4 数据库ER图
+
+hide circle
+hide methods
+
+entity "users" as users {
+    *id : bigint
+    --
+    username : varchar(50)
+    password : varchar(50)
+    role : varchar(20)
+    addtime : datetime
+}
+
+entity "yuangong" as yuangong {
+    *id : bigint
+    --
+    yuangonggonghao : varchar(50)
+    yuangongxingming : varchar(50)
+    mima : varchar(50)
+    xingbie : varchar(10)
+    touxiang : varchar(200)
+    nianling : int
+    dianhuahaoma : varchar(20)
+    addtime : datetime
+}
+
+entity "jingli" as jingli {
+    *id : bigint
+    --
+    jinglizhanghao : varchar(50)
+    jinglixingming : varchar(50)
+    mima : varchar(50)
+    xingbie : varchar(10)
+    touxiang : varchar(200)
+    dianhuahaoma : varchar(20)
+    addtime : datetime
+}
+
+entity "gongyingshang" as gongyingshang {
+    *id : bigint
+    --
+    gongyingshangbianhao : varchar(50)
+    gongyingshangmingcheng : varchar(100)
+    gongsidizhi : varchar(200)
+    lianxidianhua : varchar(20)
+    beizhu : varchar(500)
+    *jinglizhanghao : varchar(50)
+    jinglixingming : varchar(50)
+    addtime : datetime
+}
+
+entity "shangpinfenlei" as shangpinfenlei {
+    *id : bigint
+    --
+    shangpinfenlei : varchar(50)
+    addtime : datetime
+}
+
+entity "shangpinxinxi" as shangpinxinxi {
+    *id : bigint
+    --
+    shangpinbianhao : varchar(50)
+    shangpinmingcheng : varchar(100)
+    *shangpinfenlei : varchar(50)
+    jiage : float
+    tupian : varchar(200)
+    shuliang : int
+    shangpinxiangqing : text
+    *yuangonggonghao : varchar(50)
+    yuangongxingming : varchar(50)
+    addtime : datetime
+}
+
+entity "shangpinruku" as shangpinruku {
+    *id : bigint
+    --
+    rukubianhao : varchar(50)
+    shangpinmingcheng : varchar(100)
+    shangpinfenlei : varchar(50)
+    shuliang : int
+    rukushijian : datetime
+    addtime : datetime
+}
+
+entity "shangpinshouyin" as shangpinshouyin {
+    *id : bigint
+    --
+    xiaoshoudanhao : varchar(50)
+    shangpinmingcheng : varchar(100)
+    shangpinfenlei : varchar(50)
+    shuliang : int
+    jiage : float
+    zongjine : float
+    shouyinshijian : datetime
+    *yuangonggonghao : varchar(50)
+    yuangongxingming : varchar(50)
+    addtime : datetime
+}
+
+entity "shangpinxiaoshou" as shangpinxiaoshou {
+    *id : bigint
+    --
+    xiaoshoudanhao : varchar(50)
+    shangpinmingcheng : varchar(100)
+    shangpinfenlei : varchar(50)
+    shuliang : int
+    yuangongxingming : varchar(50)
+    xiaoshoushijian : datetime
+    *yuangonggonghao : varchar(50)
+    addtime : datetime
+}
+
+entity "quehuotixing" as quehuotixing {
+    *id : bigint
+    --
+    tixingbianhao : varchar(50)
+    shangpinmingcheng : varchar(100)
+    shangpinfenlei : varchar(50)
+    shuliang : int
+    tixingshijian : datetime
+    *jinglizhanghao : varchar(50)
+    jinglixingming : varchar(50)
+    *yuangonggonghao : varchar(50)
+    yuangongxingming : varchar(50)
+    addtime : datetime
+}
+
+users ||--o{ yuangong
+users ||--o{ jingli
+
+yuangong ||--o{ shangpinxinxi
+yuangong ||--o{ shangpinruku
+yuangong ||--o{ shangpinshouyin
+yuangong ||--o{ shangpinxiaoshou
+yuangong ||--o{ quehuotixing
+
+jingli ||--o{ gongyingshang
+jingli ||--o{ quehuotixing
+
+shangpinfenlei ||--o{ shangpinxinxi
+shangpinfenlei ||--o{ shangpinruku
+shangpinfenlei ||--o{ shangpinshouyin
+shangpinfenlei ||--o{ shangpinxiaoshou
+shangpinfenlei ||--o{ quehuotixing
+
+@enduml

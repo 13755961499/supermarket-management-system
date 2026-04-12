@@ -1,0 +1,170 @@
+@startuml
+!theme plain
+skinparam entity {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    BorderThickness 1
+    FontName SimSun
+    FontSize 10
+}
+
+title 系统实体关系图 - 超市管理系统
+
+hide circle
+hide methods
+
+' ===== 用户与角色 =====
+entity "Users\n系统用户" as users {
+    *id : Long <<PK>>
+    --
+    username : String
+    password : String
+    role : String
+    addtime : Date
+}
+
+entity "Yuangong\n员工" as yuangong {
+    *id : Long <<PK>>
+    --
+    yuangonggonghao : String
+    yuangongxingming : String
+    mima : String
+    xingbie : String
+    touxiang : String
+    nianling : Integer
+    dianhuahaoma : String
+    addtime : Date
+}
+
+entity "Jingli\n经理" as jingli {
+    *id : Long <<PK>>
+    --
+    jinglizhanghao : String
+    jinglixingming : String
+    mima : String
+    xingbie : String
+    touxiang : String
+    dianhuahaoma : String
+    addtime : Date
+}
+
+' ===== 供应商 =====
+entity "Gongyingshang\n供应商" as gongyingshang {
+    *id : Long <<PK>>
+    --
+    gongyingshangbianhao : String
+    gongyingshangmingcheng : String
+    gongsidizhi : String
+    lianxidianhua : String
+    beizhu : String
+    *jinglizhanghao : String <<FK>>
+    jinglixingming : String
+    addtime : Date
+}
+
+' ===== 商品相关 =====
+entity "Shangpinfenlei\n商品分类" as shangpinfenlei {
+    *id : Long <<PK>>
+    --
+    shangpinfenlei : String
+    addtime : Date
+}
+
+entity "Shangpinxinxi\n商品信息" as shangpinxinxi {
+    *id : Long <<PK>>
+    --
+    shangpinbianhao : String
+    shangpinmingcheng : String
+    *shangpinfenlei : String <<FK>>
+    jiage : Float
+    tupian : String
+    shuliang : Integer
+    shangpinxiangqing : String
+    *yuangonggonghao : String <<FK>>
+    yuangongxingming : String
+    addtime : Date
+}
+
+' ===== 业务单据 =====
+entity "Shangpinruku\n商品入库" as shangpinruku {
+    *id : Long <<PK>>
+    --
+    rukubianhao : String
+    shangpinmingcheng : String
+    shangpinfenlei : String
+    shuliang : Integer
+    rukushijian : Date
+    *yuangonggonghao : String <<FK>>
+    addtime : Date
+}
+
+entity "Shangpinshouyin\n商品收银" as shangpinshouyin {
+    *id : Long <<PK>>
+    --
+    xiaoshoudanhao : String
+    shangpinmingcheng : String
+    shangpinfenlei : String
+    shuliang : Integer
+    jiage : Float
+    zongjine : Float
+    shouyinshijian : Date
+    *yuangonggonghao : String <<FK>>
+    yuangongxingming : String
+    addtime : Date
+}
+
+entity "Shangpinxiaoshou\n商品销售" as shangpinxiaoshou {
+    *id : Long <<PK>>
+    --
+    xiaoshoudanhao : String
+    shangpinmingcheng : String
+    shangpinfenlei : String
+    shuliang : Integer
+    yuangongxingming : String
+    xiaoshoushijian : Date
+    *yuangonggonghao : String <<FK>>
+    addtime : Date
+}
+
+entity "Quehuotixing\n缺货提醒" as quehuotixing {
+    *id : Long <<PK>>
+    --
+    tixingbianhao : String
+    shangpinmingcheng : String
+    shangpinfenlei : String
+    shuliang : Integer
+    tixingshijian : Date
+    *jinglizhanghao : String <<FK>>
+    jinglixingming : String
+    *yuangonggonghao : String <<FK>>
+    yuangongxingming : String
+    addtime : Date
+}
+
+' ===== 关系定义 =====
+
+' 用户体系关系
+users ||--o{ yuangong : "1:N\n员工归属"
+users ||--o{ jingli : "1:N\n经理归属"
+
+' 经理与供应商关系
+jingli |o--o{ gongyingshang : "1:N\n管理供应商"
+
+' 员工业务关系
+yuangong |o--o{ shangpinxinxi : "1:N\n添加商品"
+yuangong |o--o{ shangpinruku : "1:N\n执行入库"
+yuangong |o--o{ shangpinshouyin : "1:N\n执行收银"
+yuangong |o--o{ shangpinxiaoshou : "1:N\n记录销售"
+yuangong |o--o{ quehuotixing : "1:N\n发起提醒"
+
+' 商品分类关系
+shangpinfenlei |o--o{ shangpinxinxi : "1:N\n商品分类"
+shangpinfenlei |o--o{ shangpinruku : "1:N\n入库记录"
+shangpinfenlei |o--o{ shangpinshouyin : "1:N\n收银记录"
+shangpinfenlei |o--o{ shangpinxiaoshou : "1:N\n销售记录"
+shangpinfenlei |o--o{ quehuotixing : "1:N\n提醒记录"
+
+' 经理与缺货提醒关系
+jingli |o--o{ quehuotixing : "1:N\n接收提醒"
+
+@enduml

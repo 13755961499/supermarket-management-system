@@ -1,0 +1,99 @@
+@startuml
+skinparam backgroundColor #FFFFFF
+skinparam componentStyle uml2
+
+skinparam class {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    BorderThickness 1
+    FontSize 9
+}
+
+title 图3-3 系统类图
+
+package entity {
+    class UsersEntity
+    class YuangongEntity
+    class JingliEntity
+    class GongyingshangEntity
+    class ShangpinfenleiEntity
+    class ShangpinxinxiEntity
+    class ShangpinrukuEntity
+    class ShangpinshouyinEntity
+    class ShangpinxiaoshouEntity
+    class QuehuotixingEntity
+}
+
+package service {
+    interface UsersService
+    interface YuangongService
+    interface JingliService
+    interface GongyingshangService
+    interface ShangpinfenleiService
+    interface ShangpinxinxiService
+    interface ShangpinrukuService
+    interface ShangpinshouyinService
+    interface ShangpinxiaoshouService
+    interface QuehuotixingService
+}
+
+package service.impl {
+    class UsersServiceImpl
+    class YuangongServiceImpl
+    class JingliServiceImpl
+    class GongyingshangServiceImpl
+    class ShangpinfenleiServiceImpl
+    class ShangpinxinxiServiceImpl
+    class ShangpinrukuServiceImpl
+    class ShangpinshouyinServiceImpl
+    class ShangpinxiaoshouServiceImpl
+    class QuehuotixingServiceImpl
+}
+
+package controller {
+    class UsersController
+    class YuangongController
+    class JingliController
+    class GongyingshangController
+    class ShangpinfenleiController
+    class ShangpinxinxiController
+    class ShangpinrukuController
+    class ShangpinshouyinController
+    class ShangpinxiaoshouController
+    class QuehuotixingController
+}
+
+UsersEntity <|.. UsersService
+YuangongEntity <|.. YuangongService
+JingliEntity <|.. JingliService
+GongyingshangEntity <|.. GongyingshangService
+ShangpinfenleiEntity <|.. ShangpinfenleiService
+ShangpinxinxiEntity <|.. ShangpinxinxiService
+ShangpinrukuEntity <|.. ShangpinrukuService
+ShangpinshouyinEntity <|.. ShangpinshouyinService
+ShangpinxiaoshouEntity <|.. ShangpinxiaoshouService
+QuehuotixingEntity <|.. QuehuotixingService
+
+UsersServiceImpl .up.|> UsersService
+YuangongServiceImpl .up.|> YuangongService
+JingliServiceImpl .up.|> JingliService
+GongyingshangServiceImpl .up.|> GongyingshangService
+ShangpinfenleiServiceImpl .up.|> ShangpinfenleiService
+ShangpinxinxiServiceImpl .up.|> ShangpinxinxiService
+ShangpinrukuServiceImpl .up.|> ShangpinrukuService
+ShangpinshouyinServiceImpl .up.|> ShangpinshouyinService
+ShangpinxiaoshouServiceImpl .up.|> ShangpinxiaoshouService
+QuehuotixingServiceImpl .up.|> QuehuotixingService
+
+UsersController --> UsersService
+YuangongController --> YuangongService
+JingliController --> JingliService
+GongyingshangController --> GongyingshangService
+ShangpinfenleiController --> ShangpinfenleiService
+ShangpinxinxiController --> ShangpinxinxiService
+ShangpinrukuController --> ShangpinrukuService
+ShangpinshouyinController --> ShangpinshouyinService
+ShangpinxiaoshouController --> ShangpinxiaoshouService
+QuehuotixingController --> QuehuotixingService
+
+@enduml

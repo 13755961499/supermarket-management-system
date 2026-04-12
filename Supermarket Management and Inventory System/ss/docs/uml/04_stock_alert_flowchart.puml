@@ -1,0 +1,85 @@
+@startuml
+!theme plain
+skinparam backgroundColor #FFFFFF
+skinparam activityStyle roundbox
+skinparam roundbox {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    FontName SimSun
+    FontSize 10
+}
+
+title 缺货提醒处理流程图
+
+start
+:系统或员工发现缺货;
+note right
+  触发方式:
+  1. 收银时库存不足
+  2. 员工手动检查库存
+  3. 系统定时检查
+end note
+
+:进入缺货提醒页面;
+:点击"新增提醒"或自动创建;
+
+:填写缺货提醒信息;
+note right
+  - 提醒编号 (系统自动生成)
+  - 商品名称
+  - 商品分类
+  - 缺货数量
+  - 提醒时间 (自动)
+end note
+
+:提交提醒;
+:调用后端保存接口;
+
+:保存缺货提醒记录;
+note right
+  写入 quehuotixing 表
+  - 关联经理账号 (jinglizhanghao)
+  - 关联经理姓名 (jinglixingming)
+  - 关联员工工号 (yuangonggonghao)
+  - 关联员工姓名 (yuangongxingming)
+end note
+
+:返回保存成功;
+:显示成功消息;
+
+:经理登录系统;
+:进入缺货提醒页面;
+
+:查看缺货提醒列表;
+note right
+  按时间排序，显示所有缺货提醒
+end note
+
+:选择缺货提醒;
+:查看详细信息;
+
+:处理缺货;
+note right
+  处理方式:
+  1. 联系供应商补货
+  2. 调整商品库存
+  3. 标记已处理
+end note
+
+if (需要供应商补货?) then (是)
+  :选择供应商;
+  :联系供应商下单;
+  note right
+    进入供应商管理流程
+  end note
+endif
+
+:标记为已处理;
+:更新缺货提醒状态;
+
+:显示处理完成;
+:缺货提醒处理完毕;
+
+stop
+
+@enduml

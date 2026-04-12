@@ -1,0 +1,95 @@
+@startuml
+!theme plain
+skinparam backgroundColor #FFFFFF
+skinparam activityStyle roundbox
+skinparam roundbox {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    FontName SimSun
+    FontSize 10
+}
+
+title 供应商管理流程图
+
+start
+:经理/管理员进入系统;
+:选择"供应商管理"功能;
+
+:显示供应商列表页面;
+
+:选择操作类型;
+if (新增供应商?) then (是)
+  :点击"新增"按钮;
+  :显示新增供应商表单;
+  
+  :填写供应商信息;
+  note right
+    - 供应商编号 (系统生成)
+    - 供应商名称
+    - 公司地址
+    - 联系电话
+    - 备注
+    - 经理账号 (当前登录人)
+    - 经理姓名 (自动带出)
+  end note
+  
+  :提交保存;
+  :验证数据;
+  if (验证通过?) then (否)
+    :显示验证错误;
+    stop
+  endif
+  
+  :保存供应商信息;
+  note right
+    写入 gongyingshang 表
+  end note
+  
+  :显示保存成功;
+  
+elseif (修改供应商?) then (是)
+  :选择要修改的供应商;
+  :显示供应商详情/编辑表单;
+  
+  :修改供应商信息;
+  :提交更新;
+  
+  :更新供应商信息;
+  note right
+    更新 gongyingshang 表
+  end note
+  
+  :显示更新成功;
+  
+elseif (删除供应商?) then (是)
+  :选择要删除的供应商;
+  :确认删除操作;
+  
+  if (确认删除?) then (否)
+    :取消删除;
+    stop
+  endif
+  
+  :删除供应商信息;
+  note right
+    从 gongyingshang 表删除
+  end note
+  
+  :显示删除成功;
+  
+elseif (查询供应商?) then (是)
+  :输入查询条件;
+  note right
+    按名称、编号等条件搜索
+  end note
+  
+  :执行查询;
+  :显示查询结果;
+endif
+
+:刷新供应商列表;
+:供应商管理完成;
+
+stop
+
+@enduml

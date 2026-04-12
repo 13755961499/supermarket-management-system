@@ -1,0 +1,127 @@
+@startuml
+skinparam backgroundColor #FFFFFF
+skinparam componentStyle uml2
+
+skinparam class {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    BorderThickness 1
+    FontSize 9
+}
+
+title 图3-1 实体类图
+
+class UsersEntity {
+    -id: Long
+    -username: String
+    -password: String
+    -role: String
+    -addtime: Date
+}
+
+class YuangongEntity {
+    -id: Long
+    -yuangonggonghao: String
+    -yuangongxingming: String
+    -mima: String
+    -xingbie: String
+    -touxiang: String
+    -nianling: Integer
+    -dianhuahaoma: String
+    -addtime: Date
+}
+
+class JingliEntity {
+    -id: Long
+    -jinglizhanghao: String
+    -jinglixingming: String
+    -mima: String
+    -xingbie: String
+    -touxiang: String
+    -dianhuahaoma: String
+    -addtime: Date
+}
+
+class GongyingshangEntity {
+    -id: Long
+    -gongyingshangbianhao: String
+    -gongyingshangmingcheng: String
+    -gongsidizhi: String
+    -lianxidianhua: String
+    -beizhu: String
+    -jinglizhanghao: String
+    -jinglixingming: String
+    -addtime: Date
+}
+
+class ShangpinfenleiEntity {
+    -id: Long
+    -shangpinfenlei: String
+    -addtime: Date
+}
+
+class ShangpinxinxiEntity {
+    -id: Long
+    -shangpinbianhao: String
+    -shangpinmingcheng: String
+    -shangpinfenlei: String
+    -jiage: Float
+    -tupian: String
+    -shuliang: Integer
+    -shangpinxiangqing: String
+    -yuangonggonghao: String
+    -yuangongxingming: String
+    -addtime: Date
+}
+
+class ShangpinrukuEntity {
+    -id: Long
+    -rukubianhao: String
+    -shangpinmingcheng: String
+    -shangpinfenlei: String
+    -shuliang: Integer
+    -rukushijian: Date
+    -addtime: Date
+}
+
+class ShangpinshouyinEntity {
+    -id: Long
+    -xiaoshoudanhao: String
+    -shangpinmingcheng: String
+    -shangpinfenlei: String
+    -shuliang: Integer
+    -jiage: Float
+    -zongjine: Float
+    -shouyinshijian: Date
+    -yuangonggonghao: String
+    -yuangongxingming: String
+    -addtime: Date
+}
+
+class ShangpinxiaoshouEntity {
+    -id: Long
+    -xiaoshoudanhao: String
+    -shangpinmingcheng: String
+    -shangpinfenlei: String
+    -shuliang: Integer
+    -yuangongxingming: String
+    -xiaoshoushijian: Date
+    -yuangonggonghao: String
+    -addtime: Date
+}
+
+class QuehuotixingEntity {
+    -id: Long
+    -tixingbianhao: String
+    -shangpinmingcheng: String
+    -shangpinfenlei: String
+    -shuliang: Integer
+    -tixingshijian: Date
+    -jinglizhanghao: String
+    -jinglixingming: String
+    -yuangonggonghao: String
+    -yuangongxingming: String
+    -addtime: Date
+}
+
+@enduml

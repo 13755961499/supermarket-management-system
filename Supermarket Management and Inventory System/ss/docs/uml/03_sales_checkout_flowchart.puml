@@ -1,0 +1,93 @@
+@startuml
+!theme plain
+skinparam backgroundColor #FFFFFF
+skinparam activityStyle roundbox
+skinparam roundbox {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    FontName SimSun
+    FontSize 10
+}
+
+title 商品销售与收银流程图
+
+start
+:员工进入系统;
+:选择"商品收银"功能;
+
+:显示收银页面;
+:扫描或输入商品;
+
+:查询商品信息;
+if (商品存在?) then (否)
+    :显示"商品不存在";
+    stop
+endif
+
+:检查商品库存;
+if (库存充足?) then (否)
+    :显示"库存不足";
+    :提示缺货;
+    note right
+      可触发缺货提醒流程
+    end note
+endif
+
+:选择商品数量;
+:计算商品小计;
+
+if (继续添加商品?) then (是)
+    :返回扫描商品;
+    note right
+      循环添加商品
+    end note
+endif
+
+:计算订单总金额;
+:显示应收金额;
+
+:接收顾客付款;
+:输入实收金额;
+
+:计算找零;
+if (付款足够?) then (否)
+    :提示付款不足;
+    stop
+endif
+
+:完成收款;
+:显示找零金额;
+
+:生成销售单号;
+:保存收银记录;
+note right
+  写入 shangpinshouyin 表
+  - 销售单号
+  - 商品名称、分类
+  - 数量、单价、总金额
+  - 收银时间
+  - 员工工号、姓名
+end note
+
+:保存销售记录;
+note right
+  写入 shangpinxiaoshou 表
+  - 销售单号
+  - 商品信息
+  - 销售时间
+  - 员工信息
+end note
+
+:更新商品库存;
+note right
+  在 Shangpinxinxi 表中
+  减少商品数量
+end note
+
+:打印小票 (可选);
+:显示交易成功;
+:收银完成;
+
+stop
+
+@enduml

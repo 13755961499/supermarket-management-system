@@ -1,0 +1,117 @@
+@startuml
+!theme plain
+skinparam backgroundColor #FFFFFF
+skinparam componentStyle uml2
+
+skinparam rectangle {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    BorderThickness 1
+    FontName SimSun
+    FontSize 10
+}
+
+skinparam node {
+    BackgroundColor #F5F5F5
+    BorderColor #333333
+    BorderThickness 1
+}
+
+title 系统框架图 - 超市管理系统
+
+' ===== 客户端层 =====
+node "客户端" as client {
+    rectangle "浏览器 (Browser)" #FFFFFF
+    rectangle "JSP 页面" #FFFFFF
+    rectangle "Ajax 请求" #FFFFFF
+}
+
+' ===== 网络层 =====
+node "网络层" as network {
+    rectangle "HTTP 协议" #FFFFFF
+    rectangle "HTTPS 安全传输" #FFFFFF
+}
+
+' ===== 服务器层 =====
+rectangle "服务器层 (Tomcat)" #FFFFFF {
+
+    ' ===== Web 层 =====
+    package "Web 层 (Spring MVC)" #E8F4E8 {
+        rectangle "DispatcherServlet\n前端控制器" #FFFFFF
+        rectangle "HandlerMapping\n处理器映射" #FFFFFF
+        rectangle "Controller\n控制器" #FFFFFF
+        rectangle "ViewResolver\n视图解析器" #FFFFFF
+    }
+
+    ' ===== 业务层 =====
+    package "业务层 (Service)" #E8E8F4 {
+        rectangle "UsersService\n用户服务" #FFFFFF
+        rectangle "YuangongService\n员工服务" #FFFFFF
+        rectangle "JingliService\n经理服务" #FFFFFF
+        rectangle "GongyingshangService\n供应商服务" #FFFFFF
+        rectangle "ShangpinxinxiService\n商品服务" #FFFFFF
+        rectangle "ShangpinrukuService\n入库服务" #FFFFFF
+        rectangle "ShangpinshouyinService\n收银服务" #FFFFFF
+        rectangle "ShangpinxiaoshouService\n销售服务" #FFFFFF
+        rectangle "QuehuotixingService\n提醒服务" #FFFFFF
+    }
+
+    ' ===== 持久层 =====
+    package "持久层 (MyBatis)" #F4E8E8 {
+        rectangle "Mapper 接口" #FFFFFF
+        rectangle "SQL 映射文件" #FFFFFF
+        rectangle "DAO 数据访问" #FFFFFF
+    }
+    
+    ' ===== 公共组件 =====
+    package "公共组件" #F8F8F8 {
+        rectangle "Token 认证" #FFFFFF
+        rectangle "拦截器 (Interceptor)" #FFFFFF
+        rectangle "验证器 (Validator)" #FFFFFF
+    }
+}
+
+' ===== 数据层 =====
+node "数据层" as data {
+    rectangle "MySQL 数据库" #FFFFFF
+    rectangle "Redis 缓存 (可选)" #FFFFFF
+}
+
+' ===== 外部接口 =====
+node "外部接口" as external {
+    rectangle "支付宝支付接口" #FFFFFF
+    rectangle "百度地图接口" #FFFFFF
+}
+
+' ===== 连接关系 =====
+client -down-> network : HTTP请求
+network -down-> DispatcherServlet : 转发请求
+
+DispatcherServlet -down-> HandlerMapping : 分发请求
+HandlerMapping -down-> Controller : 映射到Controller
+
+Controller -down-> UsersService : 调用业务
+Controller -down-> YuangongService : 调用业务
+Controller -down-> JingliService : 调用业务
+Controller -down-> GongyingshangService : 调用业务
+Controller -down-> ShangpinxinxiService : 调用业务
+
+UsersService -down-> Mapper : 数据操作
+YuangongService -down-> Mapper : 数据操作
+JingliService -down-> Mapper : 数据操作
+GongyingshangService -down-> Mapper : 数据操作
+ShangpinxinxiService -down-> Mapper : 数据操作
+
+Mapper -down-> SQL映射文件 : 读取SQL
+SQL映射文件 -down-> MySQL : 执行SQL
+
+Controller -right-> ViewResolver : 返回视图
+ViewResolver -right-> JSP页面 : 渲染页面
+
+JSP页面 -up-> client : 显示结果
+
+' 外部接口连接
+Controller -right-> 支付宝支付接口 : 支付调用
+Controller -right-> 百度地图接口 : 地图调用
+
+@enduml
