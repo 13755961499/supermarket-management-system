@@ -594,33 +594,34 @@ div#menu-container.navbar {
 	margin: 0 !important;
 }
 
-#menu-container .nav-item > a,
-#menu-container .nav-item a.nav-link,
-#menu-container a.nav-link,
-#menu-container li.nav-item.dropdown > a {
-	color: #cbd5e1 !important;
-	background: transparent !important;
-	padding: 16px 28px !important;
-	font-size: 15px !important;
-	font-weight: 600 !important;
-	letter-spacing: 0.5px !important;
-	min-width: 100px !important;
-	text-align: center !important;
-	display: inline-block !important;
-	border: none !important;
-	border-bottom: 2px solid transparent !important;
-	transition: all 0.3s ease !important;
-	text-decoration: none !important;
-}
+   #menu-container .nav-item > a,
+   #menu-container .nav-item a.nav-link,
+   #menu-container a.nav-link,
+   #menu-container li.nav-item.dropdown > a {
+	   color: #000000 !important;
+	   background: transparent !important;
+	   padding: 16px 28px !important;
+	   font-size: 17px !important;
+	   font-weight: 800 !important;
+	   letter-spacing: 0.5px !important;
+	   min-width: 100px !important;
+	   text-align: center !important;
+	   display: inline-block !important;
+	   border: none !important;
+	   border-bottom: 2px solid transparent !important;
+	   transition: all 0.3s ease !important;
+	   text-decoration: none !important;
+   }
 
+
+/* 菜单项悬停效果 - 保持高亮 */
 #menu-container .nav-item > a:hover,
-#menu-container .nav-item a.nav-link:hover,
+#menu-container .nav-item a:hover,
 #menu-container a.nav-link:hover,
 #menu-container li.nav-item.dropdown > a:hover {
-	color: #ffffff !important;
-	background: rgba(59, 130, 246, 0.15) !important;
+	color: #000000 !important;
+	background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(37, 99, 235, 0.2) 100%) !important;
 	border-bottom-color: #3b82f6 !important;
-	text-decoration: none !important;
 }
 
 #menu-container .dropdown-menu {

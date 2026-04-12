@@ -128,6 +128,7 @@
 	}
 
 	/* 表单容器 */
+	/* 表单容器 */
 	#add-container {
 		background: transparent !important;
 		padding: 50px 30px !important;
@@ -138,8 +139,10 @@
 		position: relative !important;
 		z-index: 1 !important;
 	}
+
+	/* 表单主体 */
 	#addOrUpdateForm {
-		max-width: 800px !important;
+		max-width: 600px !important;
 		width: 100% !important;
 		margin: 0 auto !important;
 		background: rgba(255, 255, 255, 0.98) !important;
@@ -149,7 +152,7 @@
 		box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.5) inset !important;
 		border: none !important;
 		position: relative !important;
-		overflow: hidden !important;
+		overflow: visible !important;
 	}
 
 	/* 顶部装饰条 */
@@ -161,25 +164,43 @@
 		right: 0 !important;
 		height: 6px !important;
 		background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%) !important;
+		border-radius: 24px 24px 0 0 !important;
 	}
 
-	/* 表单标题 */
+	/* 隐藏原来的 ::after 伪元素 */
 	#addOrUpdateForm::after {
-		content: '🔒 修改密码' !important;
-		display: block !important;
+		display: none !important;
+	}
+
+	/* 标题样式 */
+	.form-title {
 		text-align: center !important;
 		font-size: 28px !important;
 		font-weight: 700 !important;
 		color: #1f2937 !important;
-		margin-bottom: 40px !important;
+		margin: 20px 0 40px 0 !important;
 		letter-spacing: 1px !important;
+		display: block !important;
 	}
 
-	/* 表单项 */
-	.form-item {
-		margin-bottom: 32px !important;
-		position: relative !important;
+	/* 表单布局 */
+	#addOrUpdateForm form {
+		display: flex !important;
+		flex-direction: column !important;
+		gap: 0 !important;
 	}
+
+	/* 表单项 - 垂直排列 */
+	.form-item {
+		margin-bottom: 28px !important;
+		position: relative !important;
+		width: 100% !important;
+	}
+
+	.form-item:last-of-type {
+		margin-bottom: 36px !important;
+	}
+
 	.form-item label {
 		display: flex !important;
 		align-items: center !important;
@@ -220,7 +241,22 @@
 
 	/* 按钮容器 */
 	.form-btn {
-		margin-top: 48px !important;
+		margin-top: 40px !important;
+		margin-bottom: 0 !important;
+		text-align: center !important;
+		display: flex !important;
+		gap: 16px !important;
+		justify-content: center !important;
+		align-items: center !important;
+	}
+	.form-item .form-control::placeholder {
+		color: #9ca3af !important;
+	}
+
+	/* 按钮容器 - 居中 */
+	.form-btn {
+		margin-top: 40px !important;
+		margin-bottom: 0 !important;
 		text-align: center !important;
 		display: flex !important;
 		gap: 16px !important;
@@ -330,6 +366,7 @@
 		<!-- Main Content -->
 		<div id="add-container">
 			<form id="addOrUpdateForm">
+				<h2 class="form-title">🔒 修改密码</h2>
 				<input id="updateId" name="id" type="hidden">
 				<div class="form-item">
 					<label>原密码</label>

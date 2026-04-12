@@ -74,3 +74,15 @@ Color : GREEN
 .block-title-new [class^="ti-"], .block-title-new [class*=" ti-"]{
 	color: #3CB371;
 }
+
+#menu-container .nav-item > a,
+#menu-container .nav-item a.nav-link,
+#menu-container a.nav-link,
+#menu-container li.nav-item.dropdown > a,
+#menu-container ul li a,
+.navbar-nav li a {
+	color: #000000 !important;
+	font-weight: 800 !important;
+	text-shadow: none !important;
+	-webkit-text-fill-color: #000000 !important;
+}

@@ -4,7 +4,7 @@
 .navbar,
 .navbar-default,
 .navbar.navbar-light {
-    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
+    background: linear-gradient(135deg, #1e293b 0%, #e0e3ec 100%) !important;
     background-color: #1e293b !important;
 }
 
@@ -18,18 +18,32 @@ div#menu-container {
     box-shadow: 0 4px 20px rgba(0,0,0,0.4) !important;
 }
 
-/* 菜单项文字颜色 */
-#menu-container .nav-item > a,
-#menu-container .nav-item a,
-#menu-container a.nav-link {
-    color: #cbd5e1 !important;
+/* ... existing code ... */
+
+/* 菜单项文字颜色 - 黑色加粗大字体（最高优先级） */
+body #menu-container .nav-item > a,
+body #menu-container .nav-item a.nav-link,
+body #menu-container a.nav-link,
+body #menu-container li.nav-item.dropdown > a,
+#menu-container ul li a,
+.navbar-nav li a,
+.nav li a {
+    color: #000000 !important;
     background: transparent !important;
     padding: 16px 28px !important;
-    font-size: 15px !important;
-    font-weight: 600 !important;
+    font-size: 17px !important;
+    font-weight: 800 !important;
     letter-spacing: 0.5px !important;
     min-width: 100px !important;
+    text-align: center !important;
+    display: inline-block !important;
+    border: none !important;
+    border-bottom: 2px solid transparent !important;
+    transition: all 0.3s ease !important;
+    text-decoration: none !important;
 }
+
+/* ... existing code ... */
 
 /* 菜单项悬停效果 */
 #menu-container .nav-item > a:hover,
@@ -93,7 +107,7 @@ div#menu-container {
 #menu-container .dropdown-menu h5,
 .dropdown-menu h5,
 .navbar .dropdown-menu h5 {
-    color: #ffffff !important;
+    color: #1e1c1c !important;
     background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
 }
 
