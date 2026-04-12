@@ -182,3 +182,23 @@ body #menu-container li.nav-item.dropdown > a,
     color: #e2e8f0 !important;
     border-bottom: 2px solid #334155 !important;
 }
+
+.table tbody tr td {
+    vertical-align: middle !important;
+    padding: 16px 12px !important;
+    line-height: 1.8 !important;
+    font-size: 15px !important;
+}
+
+/* 表格行高设置 */
+.table tbody tr {
+    height: auto !important;
+    min-height: 55px !important;
+}
+
+/* 表格头部样式 */
+.table thead th {
+    padding: 14px 12px !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+}
