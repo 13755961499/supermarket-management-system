@@ -458,14 +458,12 @@
 			var size = Math.floor(Math.random() * sizes.length)
 			codes[i].size = sizes[size] + 'px'
 		}
-
 		var str = ''
 		for(var i = 0;i<codes.length;i++) {
 			str += '<span style="color:' + codes[i].color + ';transform:' + codes[i].rotate + ';fontSize:' + codes[i].size + ';padding: 0 3px;display:inline-block">'+codes[i].num+'</span>'
 		}
 		$('#nums').html('').append(str);
 	}
-
 	randomString();
 </script>
 

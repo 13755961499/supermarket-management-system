@@ -1,0 +1,122 @@
+/* 超市管理系统深色主题样式 */
+
+/* 全局导航栏深色背景 - 从源头解决，确保所有 navbar 都是深色 */
+.navbar,
+.navbar-default,
+.navbar.navbar-light {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
+    background-color: #1e293b !important;
+}
+
+/* 菜单导航栏背景 */
+#menu-container,
+.navbar#menu-container,
+div#menu-container {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
+    background-color: #1e293b !important;
+    border-bottom: 2px solid #3b82f6 !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4) !important;
+}
+
+/* 菜单项文字颜色 */
+#menu-container .nav-item > a,
+#menu-container .nav-item a,
+#menu-container a.nav-link {
+    color: #cbd5e1 !important;
+    background: transparent !important;
+    padding: 16px 28px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px !important;
+    min-width: 100px !important;
+}
+
+/* 菜单项悬停效果 */
+#menu-container .nav-item > a:hover,
+#menu-container .nav-item a:hover,
+#menu-container a.nav-link:hover {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.3) 0%, rgba(37, 99, 235, 0.3) 100%) !important;
+}
+
+/* 下拉菜单背景 */
+#menu-container .dropdown-menu {
+    background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%) !important;
+    border: none !important;
+    border-top: 2px solid #3b82f6 !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* 下拉菜单项 */
+#menu-container .dropdown-item {
+    color: #94a3b8 !important;
+    background: transparent !important;
+}
+
+#menu-container .dropdown-item:hover {
+    color: #ffffff !important;
+    background: rgba(59, 130, 246, 0.2) !important;
+}
+
+/* 面包屑导航 */
+#breadcrumb-container {
+    background: rgba(30, 41, 59, 0.6) !important;
+    border-bottom: 1px solid #334155 !important;
+}
+
+#breadcrumb-container .breadcrumb-title {
+    color: #e2e8f0 !important;
+}
+
+#breadcrumb-container .breadcrumb-item-home a {
+    color: #94a3b8 !important;
+}
+
+#breadcrumb-container .breadcrumb-item-home a:hover {
+    color: #3b82f6 !important;
+}
+
+/* 首页内容区域 */
+#home-container {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
+}
+
+#home-container .home-container-title {
+    color: #e2e8f0 !important;
+}
+
+/* 统计卡片 */
+#home-container .cards .item {
+    background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%) !important;
+    border: 1px solid #334155 !important;
+    border-radius: 16px !important;
+}
+
+#home-container .cards .item:hover {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 12px 40px rgba(59, 130, 246, 0.35) !important;
+}
+
+#home-container .cards .item .num {
+    color: #3b82f6 !important;
+}
+
+#home-container .cards .item .name {
+    color: #94a3b8 !important;
+}
+
+#home-container .cards .item .link {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+}
+
+/* 图表容器 */
+.chart-box {
+    background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%) !important;
+    border: 1px solid #334155 !important;
+    border-radius: 16px !important;
+}
+
+.chart-title {
+    color: #e2e8f0 !important;
+    border-bottom: 2px solid #334155 !important;
+}

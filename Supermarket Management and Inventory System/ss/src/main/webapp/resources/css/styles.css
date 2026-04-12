@@ -84,12 +84,17 @@ a:focus {
 	color: #40AAFF;
 }
 
+/* ... existing code ... */
+
 .navbar {
 	padding: 0;
-	background: #fff;
+	background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
 	border: none;
 	border-radius: 0;
 }
+
+/* ... existing code ... */
+
 
 .navbar-btn {
 	box-shadow: none;
@@ -155,7 +160,7 @@ a:focus {
 form .row>[class^=col] {
 	padding-top: .5rem !important;
 	padding-bottom: .5rem !important;
-	background-color: #fff !important;
+	background-color: transparent !important;
 	border: 0px !important;
 }
 
@@ -534,41 +539,120 @@ table.dataTable th:first-child{
     margin: 0 5px;
     border-radius: 5px;
 }
-.menu-nav .navbar-nav .nav-item.active{
-	border: 1px solid rgba(0,0,0,.05)
-}
-.menu-nav .dropdown-toggle::after{
-	color: rgba(0,0,0,.3);
-}
-li.nav-item.active {
-    background: rgba(0,0,0,.2);
-    border-radius: 5px;
-}
+/* ... existing code ... */
 .menu-nav .nav-tabs .nav-link:focus, .menu-nav .nav-tabs .nav-link:hover{
 	border-color: transparent;
 }
 .menu-nav .dropdown-menu{
 	border-radius: 0;
-    border: 0;
-    -webkit-box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
-	background: #fff;
+	border: 0;
+	-webkit-box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+	box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+	background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
 	padding: 0px;
 	margin-top: 7px;
+	border-top: 2px solid #3b82f6;
 }
 .menu-nav .dropdown-menu a{
 	font-size: 13px;
-    padding-top: 10px;
+	padding-top: 10px;
 	padding-bottom: 10px;
-	color: rgba(0,0,0,.7);
+	color: #94a3b8;
 	font-weight: 600;
 }
 .menu-nav .dropdown-menu a:nth-child(even) {
-	background-color: rgba(0,0,0,.02);
+	background-color: rgba(59, 130, 246, 0.05);
 }
 .menu-nav [class^="ti-"], .menu-nav [class*=" ti-"]{
 	color: rgba(255,255,255,.8);
 }
+.menu-nav .dropdown-menu a:hover{
+	padding-left:1.7rem;
+	padding-right:1.3rem;
+	background: linear-gradient(90deg, rgba(59, 130, 246, 0.2) 0%, rgba(59, 130, 246, 0.05) 100%);
+	color: #ffffff;
+}
+
+/* 新增：菜单导航栏和菜单项样式 */
+#menu-container,
+#menu-container.navbar,
+div#menu-container,
+div#menu-container.navbar {
+	background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
+	border-bottom: 2px solid #3b82f6 !important;
+	box-shadow: 0 4px 20px rgba(0,0,0,0.4) !important;
+	padding: 0 !important;
+	margin-top: 70px !important;
+}
+
+#menu-container .navbar-nav {
+	display: flex !important;
+	flex-wrap: nowrap !important;
+	justify-content: flex-start !important;
+	list-style: none !important;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+#menu-container .nav-item > a,
+#menu-container .nav-item a.nav-link,
+#menu-container a.nav-link,
+#menu-container li.nav-item.dropdown > a {
+	color: #cbd5e1 !important;
+	background: transparent !important;
+	padding: 16px 28px !important;
+	font-size: 15px !important;
+	font-weight: 600 !important;
+	letter-spacing: 0.5px !important;
+	min-width: 100px !important;
+	text-align: center !important;
+	display: inline-block !important;
+	border: none !important;
+	border-bottom: 2px solid transparent !important;
+	transition: all 0.3s ease !important;
+	text-decoration: none !important;
+}
+
+#menu-container .nav-item > a:hover,
+#menu-container .nav-item a.nav-link:hover,
+#menu-container a.nav-link:hover,
+#menu-container li.nav-item.dropdown > a:hover {
+	color: #ffffff !important;
+	background: rgba(59, 130, 246, 0.15) !important;
+	border-bottom-color: #3b82f6 !important;
+	text-decoration: none !important;
+}
+
+#menu-container .dropdown-menu {
+	background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%) !important;
+	border: none !important;
+	border-top: 2px solid #3b82f6 !important;
+	box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6) !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	min-width: 200px !important;
+}
+
+#menu-container .dropdown-item {
+	color: #94a3b8 !important;
+	background: transparent !important;
+	padding: 12px 20px !important;
+	font-size: 14px !important;
+	display: block !important;
+	width: 100% !important;
+	clear: both !important;
+	text-align: left !important;
+	text-decoration: none !important;
+	transition: all 0.2s ease !important;
+}
+
+#menu-container .dropdown-item:hover,
+#menu-container .dropdown-item:focus {
+	color: #ffffff !important;
+	background: rgba(59, 130, 246, 0.2) !important;
+	text-decoration: none !important;
+}
+
 .menu-nav .dropdown-menu a:hover{
 	padding-left:1.7rem;
 	padding-right:1.3rem;
@@ -2187,7 +2271,7 @@ label.error{
 		padding: 0 12px;
 		margin: 0 0px;
 		color: #333;
-		background: #;
+		background: #333;
 		display: inline-block;
 		font-size: 12px;
 		border-color: #d3dbde;

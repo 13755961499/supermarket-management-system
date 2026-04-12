@@ -9,7 +9,71 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css">
 </head>
 <style>
+	body {
+		background: #f5f7fa !important;
+		margin: 0 !important;
+	}
+	#menu-container,
+	#menu-container.navbar,
+	div#menu-container {
+		background: #ffffff !important;
+		border-bottom: 2px solid #e5e7eb !important;
+		box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+	}
+	#menu-container .nav-item > a,
+	#menu-container .nav-item a.nav-link {
+		color: #4b5563 !important;
+	}
+	#menu-container .nav-item > a:hover,
+	#menu-container .nav-item a.nav-link:hover {
+		color: #3b82f6 !important;
+		background: #f3f4f6 !important;
+	}
+	#breadcrumb-container {
+		background: #ffffff !important;
+		border-bottom: 1px solid #e5e7eb !important;
+	}
+	#breadcrumb-container .breadcrumb-title {
+		color: #1f2937 !important;
+	}
+	#center-container {
+		background: #f5f7fa !important;
+		padding: 30px !important;
+	}
+	.center-form {
+		background: #ffffff !important;
+		padding: 20px !important;
+		border-radius: 8px !important;
+		box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+		margin-bottom: 20px !important;
+	}
+	.btns { margin-bottom: 20px !important; }
+	.table {
+		background: #ffffff !important;
+		border-radius: 8px !important;
+		box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+	}
+	.table thead th {
+		background: #f9fafb !important;
+		color: #374151 !important;
+		border-bottom: 2px solid #e5e7eb !important;
+	}
+	.table tbody tr { border-bottom: 1px solid #f3f4f6 !important; }
+	.table tbody tr:hover { background: #f9fafb !important; }
+	#pagination {
+		background: #ffffff !important;
+		padding: 20px !important;
+		border-radius: 8px !important;
+		box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+		margin-top: 20px !important;
+	}
+	.page-item.active .page-link {
+		background-color: #3b82f6 !important;
+		border-color: #3b82f6 !important;
+	}
+	.page-link { color: #3b82f6 !important; }
 </style>
+
 <body>
 	<div id="main-container">
 		<!-- Top Navigation -->
