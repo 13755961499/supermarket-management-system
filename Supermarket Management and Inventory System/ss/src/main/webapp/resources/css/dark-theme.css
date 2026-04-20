@@ -202,3 +202,310 @@ body #menu-container li.nav-item.dropdown > a,
     font-size: 15px !important;
     line-height: 1.6 !important;
 }
+
+/* ========== 表单区域整体优化 ========== */
+#add-container {
+    background: #f8fafc !important;
+    min-height: calc(100vh - 100px) !important;
+    padding: 20px !important;
+}
+
+#add-container #addOrUpdateForm {
+    max-width: 900px !important;
+    margin: 0 auto !important;
+    background: #ffffff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+    padding: 30px 40px !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+}
+
+/* 去除蓝色背景，改为现代简洁风格 */
+#add-container #addOrUpdateForm .form-item,
+#add-container #addOrUpdateForm .form-item-img {
+    background: transparent !important;
+    border: none !important;
+    width: 100% !important;
+    margin: 0 0 16px 0 !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+#add-container #addOrUpdateForm .form-item label,
+#add-container #addOrUpdateForm .form-item-img label {
+    color: #334155 !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    width: 120px !important;
+    min-width: 120px !important;
+    text-align: right !important;
+    line-height: 40px !important;
+    padding: 0 12px 0 0 !important;
+    margin: 0 !important;
+}
+
+#add-container #addOrUpdateForm .form-item input,
+#add-container #addOrUpdateForm .form-item select,
+#add-container #addOrUpdateForm .form-item .date {
+    width: 100% !important;
+    max-width: 450px !important;
+    height: 42px !important;
+    line-height: 42px !important;
+    padding: 0 14px !important;
+    margin: 0 !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    background: #f8fafc !important;
+    font-size: 15px !important;
+    color: #0f172a !important;
+    box-shadow: none !important;
+    transition: all 0.2s ease !important;
+}
+
+#add-container #addOrUpdateForm .form-item input:focus,
+#add-container #addOrUpdateForm .form-item select:focus,
+#add-container #addOrUpdateForm .form-item .date:focus {
+    border-color: #3b82f6 !important;
+    background: #ffffff !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15) !important;
+    outline: none !important;
+}
+
+/* 按钮区域优化 */
+#add-container #addOrUpdateForm .form-btn {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    gap: 16px !important;
+    margin-top: 30px !important;
+    padding-top: 20px !important;
+    border-top: 1px solid #f1f5f9 !important;
+}
+
+#add-container #addOrUpdateForm .form-btn .btn-add,
+#add-container #addOrUpdateForm .form-btn .btn-close {
+    min-width: 120px !important;
+    height: 42px !important;
+    line-height: 42px !important;
+    padding: 0 24px !important;
+    border-radius: 8px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+}
+
+#add-container #addOrUpdateForm .form-btn .btn-add {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+    color: #ffffff !important;
+}
+
+#add-container #addOrUpdateForm .form-btn .btn-add:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.35) !important;
+}
+
+#add-container #addOrUpdateForm .form-btn .btn-close {
+    background: #f1f5f9 !important;
+    color: #475569 !important;
+}
+
+#add-container #addOrUpdateForm .form-btn .btn-close:hover {
+    background: #e2e8f0 !important;
+    color: #0f172a !important;
+}
+
+/* 表格头部样式 */
+.table thead th {
+    padding: 14px 12px !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+}
+
+/* ========== 表单区域整体优化 ========== */
+#add-container {
+    background: #f8fafc !important;
+    min-height: calc(100vh - 100px) !important;
+    padding: 20px !important;
+}
+
+#add-container #addOrUpdateForm {
+    max-width: 900px !important;
+    margin: 0 auto !important;
+    background: #ffffff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+    padding: 30px 40px !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+}
+
+/* 去除蓝色背景，改为现代简洁风格 */
+#add-container #addOrUpdateForm .form-item,
+#add-container #addOrUpdateForm .form-item-img {
+    background: transparent !important;
+    border: none !important;
+    width: 100% !important;
+    margin: 0 0 16px 0 !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+#add-container #addOrUpdateForm .form-item label,
+#add-container #addOrUpdateForm .form-item-img label {
+    color: #334155 !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    width: 120px !important;
+    min-width: 120px !important;
+    text-align: right !important;
+    line-height: 40px !important;
+    padding: 0 12px 0 0 !important;
+    margin: 0 !important;
+}
+
+#add-container #addOrUpdateForm .form-item input,
+#add-container #addOrUpdateForm .form-item select,
+#add-container #addOrUpdateForm .form-item .date {
+    width: 100% !important;
+    max-width: 450px !important;
+    height: 42px !important;
+    line-height: 42px !important;
+    padding: 0 14px !important;
+    margin: 0 !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    background: #f8fafc !important;
+    font-size: 15px !important;
+    color: #0f172a !important;
+    box-shadow: none !important;
+    transition: all 0.2s ease !important;
+}
+
+#add-container #addOrUpdateForm .form-item input:focus,
+#add-container #addOrUpdateForm .form-item select:focus,
+#add-container #addOrUpdateForm .form-item .date:focus {
+    border-color: #3b82f6 !important;
+    background: #ffffff !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15) !important;
+    outline: none !important;
+}
+
+/* 按钮区域优化 */
+#add-container #addOrUpdateForm .form-btn {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    gap: 16px !important;
+    margin-top: 30px !important;
+    padding-top: 20px !important;
+    border-top: 1px solid #f1f5f9 !important;
+}
+
+#add-container #addOrUpdateForm .form-btn .btn-add,
+#add-container #addOrUpdateForm .form-btn .btn-close {
+    min-width: 120px !important;
+    height: 42px !important;
+    line-height: 42px !important;
+    padding: 0 24px !important;
+    border-radius: 8px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+}
+
+#add-container #addOrUpdateForm .form-btn .btn-add {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+    color: #ffffff !important;
+}
+
+#add-container #addOrUpdateForm .form-btn .btn-add:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.35) !important;
+}
+
+#add-container #addOrUpdateForm .form-btn .btn-close {
+    background: #f1f5f9 !important;
+    color: #475569 !important;
+}
+
+#add-container #addOrUpdateForm .form-btn .btn-close:hover {
+    background: #e2e8f0 !important;
+    color: #0f172a !important;
+}
+
+/* ========== 修改个人信息页面特殊样式覆盖 ========== */
+#add-container .form-title {
+    font-size: 24px !important;
+    color: #0f172a !important;
+    margin: 0 0 30px 0 !important;
+    width: 100% !important;
+    text-align: center !important;
+    font-weight: 700 !important;
+}
+
+#add-container #addOrUpdateForm .form-item {
+    margin: 0 0 20px 0 !important;
+}
+
+#add-container #addOrUpdateForm .form-item label {
+    width: 140px !important;
+    min-width: 140px !important;
+    padding-right: 16px !important;
+}
+
+#add-container #addOrUpdateForm .form-item .form-control {
+    width: 100% !important;
+    max-width: 450px !important;
+    height: 42px !important;
+    line-height: 42px !important;
+    padding: 0 14px !important;
+    margin: 0 !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    background: #f8fafc !important;
+    font-size: 15px !important;
+    color: #0f172a !important;
+    box-shadow: none !important;
+    transition: all 0.2s ease !important;
+}
+
+#add-container #addOrUpdateForm .form-item .form-control:focus {
+    border-color: #3b82f6 !important;
+    background: #ffffff !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15) !important;
+    outline: none !important;
+    transform: none !important;
+}
+
+#add-container #addOrUpdateForm .btn-add {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 0 40px !important;
+    height: 42px !important;
+    line-height: 42px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    box-shadow: none !important;
+    min-width: 120px !important;
+    transform: none !important;
+}
+
+#add-container #addOrUpdateForm .btn-add:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.35) !important;
+}
+
+#add-container #addOrUpdateForm .btn-add::before {
+    display: none !important;
+}

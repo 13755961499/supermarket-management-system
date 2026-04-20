@@ -69,7 +69,7 @@
 	}
 
 	body {
-		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+		background: #f8fafc !important;
 		margin: 0 !important;
 		font-family: 'Roboto', 'Microsoft YaHei', sans-serif !important;
 		min-height: 100vh !important;
@@ -88,53 +88,13 @@
 		pointer-events: auto !important;
 	}
 
-	/* 菜单导航栏 */
-	#menu-container,
-	#menu-container.navbar,
-	div#menu-container {
-		background: rgba(255, 255, 255, 0.95) !important;
-		backdrop-filter: blur(10px) !important;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
-		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
-	}
-	#menu-container .nav-item > a,
-	#menu-container .nav-item a.nav-link {
-		color: #4b5563 !important;
-		padding: 16px 28px !important;
-		font-size: 15px !important;
-		font-weight: 600 !important;
-	}
-	#menu-container .nav-item > a:hover,
-	#menu-container .nav-item a.nav-link:hover {
-		color: #667eea !important;
-		background: rgba(102, 126, 234, 0.1) !important;
-	}
-
-	/* 面包屑导航 */
-	#breadcrumb-container {
-		background: rgba(255, 255, 255, 0.9) !important;
-		backdrop-filter: blur(10px) !important;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
-		padding: 16px 30px !important;
-	}
-	#breadcrumb-container .breadcrumb-title {
-		color: #1f2937 !important;
-		font-size: 20px !important;
-		font-weight: 700 !important;
-		margin: 0 !important;
-	}
-	#breadcrumb-container .breadcrumb-list {
-		margin: 5px 0 0 15px !important;
-	}
-
-	/* 表单容器 */
 	/* 表单容器 */
 	#add-container {
-		background: transparent !important;
-		padding: 50px 30px !important;
-		min-height: calc(100vh - 200px) !important;
+		background: #f8fafc !important;
+		padding: 20px !important;
+		min-height: calc(100vh - 100px) !important;
 		display: flex !important;
-		align-items: center !important;
+		align-items: flex-start !important;
 		justify-content: center !important;
 		position: relative !important;
 		z-index: 1 !important;
@@ -142,29 +102,22 @@
 
 	/* 表单主体 */
 	#addOrUpdateForm {
-		max-width: 600px !important;
+		max-width: 900px !important;
 		width: 100% !important;
-		margin: 0 auto !important;
-		background: rgba(255, 255, 255, 0.98) !important;
-		backdrop-filter: blur(20px) !important;
-		padding: 60px !important;
-		border-radius: 24px !important;
-		box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.5) inset !important;
+		text-align: center !important;
+		margin: 20px auto !important;
+		background: #ffffff !important;
+		padding: 30px 40px !important;
+		border-radius: 12px !important;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
 		border: none !important;
 		position: relative !important;
 		overflow: visible !important;
 	}
 
-	/* 顶部装饰条 */
+	/* 隐藏原来的装饰条 */
 	#addOrUpdateForm::before {
-		content: '' !important;
-		position: absolute !important;
-		top: 0 !important;
-		left: 0 !important;
-		right: 0 !important;
-		height: 6px !important;
-		background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%) !important;
-		border-radius: 24px 24px 0 0 !important;
+		display: none !important;
 	}
 
 	/* 隐藏原来的 ::after 伪元素 */
@@ -175,15 +128,16 @@
 	/* 标题样式 */
 	.form-title {
 		text-align: center !important;
-		font-size: 28px !important;
+		font-size: 24px !important;
 		font-weight: 700 !important;
-		color: #1f2937 !important;
-		margin: 20px 0 40px 0 !important;
+		color: #0f172a !important;
+		margin: 0 0 30px 0 !important;
 		letter-spacing: 1px !important;
 		display: block !important;
+		width: 100% !important;
 	}
 
-	/* 表单布局 */
+	/* 表单布局 - 垂直排列 */
 	#addOrUpdateForm form {
 		display: flex !important;
 		flex-direction: column !important;
@@ -192,108 +146,110 @@
 
 	/* 表单项 - 垂直排列 */
 	.form-item {
-		margin-bottom: 28px !important;
+		margin: 0 0 20px 0 !important;
 		position: relative !important;
 		width: 100% !important;
+		display: flex !important;
+		align-items: center !important;
 	}
 
 	.form-item:last-of-type {
-		margin-bottom: 36px !important;
+		margin-bottom: 30px !important;
 	}
 
 	.form-item label {
-		display: flex !important;
-		align-items: center !important;
-		gap: 8px !important;
-		color: #374151 !important;
+		display: block !important;
+		color: #334155 !important;
 		font-weight: 600 !important;
 		font-size: 15px !important;
-		margin-bottom: 12px !important;
+		margin-bottom: 0 !important;
 		letter-spacing: 0.5px !important;
+		width: 120px !important;
+		min-width: 120px !important;
+		text-align: right !important;
+		line-height: 40px !important;
+		padding: 0 12px 0 0 !important;
 	}
+
 	.form-item label::before {
-		content: '' !important;
-		display: inline-block !important;
-		width: 4px !important;
-		height: 18px !important;
-		background: linear-gradient(180deg, #667eea 0%, #764ba2 100%) !important;
-		border-radius: 2px !important;
+		display: none !important;
 	}
+
 	.form-item .form-control {
 		width: 100% !important;
-		border: 2px solid #e5e7eb !important;
-		border-radius: 12px !important;
-		padding: 16px 20px !important;
+		max-width: 450px !important;
+		border: 1px solid #e2e8f0 !important;
+		border-radius: 8px !important;
+		padding: 0 14px !important;
 		font-size: 15px !important;
-		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-		background: #fafafa !important;
+		transition: all 0.2s ease !important;
+		background: #f8fafc !important;
+		height: 42px !important;
+		line-height: 42px !important;
+		margin: 0 !important;
+		box-shadow: none !important;
 	}
+
 	.form-item .form-control:focus {
-		border-color: #667eea !important;
-		box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15), 0 4px 12px rgba(102, 126, 234, 0.1) !important;
+		border-color: #3b82f6 !important;
+		box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15) !important;
 		outline: none !important;
 		background: #ffffff !important;
-		transform: translateY(-2px) !important;
+		transform: none !important;
 	}
+
 	.form-item .form-control::placeholder {
 		color: #9ca3af !important;
 	}
 
 	/* 按钮容器 */
 	.form-btn {
-		margin-top: 40px !important;
+		margin-top: 30px !important;
 		margin-bottom: 0 !important;
 		text-align: center !important;
 		display: flex !important;
 		gap: 16px !important;
 		justify-content: center !important;
 		align-items: center !important;
-	}
-	.form-item .form-control::placeholder {
-		color: #9ca3af !important;
-	}
-
-	/* 按钮容器 - 居中 */
-	.form-btn {
-		margin-top: 40px !important;
-		margin-bottom: 0 !important;
-		text-align: center !important;
-		display: flex !important;
-		gap: 16px !important;
-		justify-content: center !important;
-		align-items: center !important;
+		width: 100% !important;
+		padding-top: 20px !important;
+		border-top: 1px solid #f1f5f9 !important;
 	}
 
 	/* 提交按钮 */
 	.btn-add {
-		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+		background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
 		border: none !important;
-		border-radius: 12px !important;
-		padding: 16px 60px !important;
-		font-size: 16px !important;
-		font-weight: 700 !important;
+		border-radius: 8px !important;
+		padding: 0 40px !important;
+		height: 42px !important;
+		line-height: 42px !important;
+		font-size: 15px !important;
+		font-weight: 600 !important;
 		color: #ffffff !important;
 		cursor: pointer !important;
-		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-		box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4) !important;
-		letter-spacing: 1px !important;
+		transition: all 0.2s ease !important;
+		box-shadow: none !important;
+		min-width: 120px !important;
+		letter-spacing: 0.5px !important;
 		display: inline-flex !important;
 		align-items: center !important;
 		justify-content: center !important;
 		position: relative !important;
-		overflow: hidden !important;
+		overflow: visible !important;
 	}
+
 	.btn-add::before {
-		content: '✓ ' !important;
-		margin-right: 8px !important;
-		font-size: 18px !important;
+		display: none !important;
 	}
+
 	.btn-add:hover {
-		transform: translateY(-3px) !important;
-		box-shadow: 0 12px 32px rgba(102, 126, 234, 0.5) !important;
-	}
-	.btn-add:active {
 		transform: translateY(-1px) !important;
+		box-shadow: 0 4px 12px rgba(59, 130, 246, 0.35) !important;
+	}
+
+	.btn-add:active {
+		transform: translateY(0) !important;
 	}
 
 	/* 错误提示 */
@@ -306,6 +262,7 @@
 		gap: 6px !important;
 		font-weight: 500 !important;
 	}
+
 	.error::before {
 		content: '⚠️' !important;
 		font-size: 14px !important;
@@ -313,7 +270,7 @@
 
 	/* 返回顶部按钮 */
 	.back-to-top {
-		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+		background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
 		border-radius: 50% !important;
 		width: 50px !important;
 		height: 50px !important;
@@ -321,12 +278,13 @@
 		align-items: center !important;
 		justify-content: center !important;
 		color: #ffffff !important;
-		box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4) !important;
+		box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3) !important;
 		transition: all 0.3s ease !important;
 	}
+
 	.back-to-top:hover {
-		transform: translateY(-5px) scale(1.1) !important;
-		box-shadow: 0 12px 32px rgba(102, 126, 234, 0.5) !important;
+		transform: translateY(-3px) !important;
+		box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4) !important;
 	}
 
 	/* 响应式设计 */
@@ -335,10 +293,20 @@
 			padding: 20px 15px !important;
 		}
 		#addOrUpdateForm {
-			padding: 40px 30px !important;
+			padding: 30px 20px !important;
 		}
-		#addOrUpdateForm::after {
-			font-size: 22px !important;
+		.form-item {
+			flex-direction: column !important;
+			align-items: flex-start !important;
+		}
+		.form-item label {
+			width: 100% !important;
+			text-align: left !important;
+			margin-bottom: 8px !important;
+		}
+		.form-item .form-control {
+			width: 100% !important;
+			max-width: none !important;
 		}
 		.form-btn {
 			flex-direction: column !important;
@@ -349,6 +317,7 @@
 		}
 	}
 </style>
+
 <body>
 
 	<div id="main-container">
