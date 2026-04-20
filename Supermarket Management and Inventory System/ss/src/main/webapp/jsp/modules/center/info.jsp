@@ -21,8 +21,7 @@
 </head>
 <!-- ... existing code ... -->
 <style>
-	/* 修复下拉菜单问题 */
-	<style>
+
 		/* 修复下拉菜单问题 */
 	.dropdown-menu {
 		position: absolute !important;
