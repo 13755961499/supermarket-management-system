@@ -122,16 +122,16 @@ body #menu-container li.nav-item.dropdown > a,
 
 /* 面包屑导航 */
 #breadcrumb-container {
-    background: rgba(30, 41, 59, 0.6) !important;
-    border-bottom: 1px solid #334155 !important;
+    background:  #ffffff !important;
+    border-bottom: 1px solid #e2e8f0 !important;
 }
 
 #breadcrumb-container .breadcrumb-title {
-    color: #e2e8f0 !important;
+    color: #0f172a !important;
 }
 
 #breadcrumb-container .breadcrumb-item-home a {
-    color: #94a3b8 !important;
+    color: #64748b !important;
 }
 
 #breadcrumb-container .breadcrumb-item-home a:hover {
