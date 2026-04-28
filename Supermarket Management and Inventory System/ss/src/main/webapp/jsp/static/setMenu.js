@@ -169,4 +169,4 @@ $(document).ready(function() {
             'border-bottom': '2px solid #3b82f6'
         });
     }, 500);
-});
+})
