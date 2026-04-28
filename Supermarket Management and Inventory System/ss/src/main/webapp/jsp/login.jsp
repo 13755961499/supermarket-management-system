@@ -31,50 +31,87 @@
 		  href="${pageContext.request.contextPath}/resources/assets2/ico/minus.png">
 </head>
 <style>
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
 	html, body {
 		width: 100%;
 		height: 100%;
+		font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
 	}
 
 	.content {
-		background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+		background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
 		display: flex;
 		width: 100%;
 		min-height: 100vh;
 		justify-content: center;
 		align-items: center;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.content::before {
+		content: '';
+		position: absolute;
+		width: 200%;
+		height: 200%;
+		background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+		background-size: 50px 50px;
+		animation: moveGrid 20s linear infinite;
+	}
+
+	@keyframes moveGrid {
+		0% { transform: translate(0, 0); }
+		100% { transform: translate(50px, 50px); }
 	}
 
 	#loginForm {
 		border: 2px solid #2d3748;
-		border-radius: 16px;
-		padding: 40px;
-		box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+		border-radius: 20px;
+		padding: 60px 80px;
+		box-shadow: 0 20px 60px rgba(0,0,0,0.5);
 		margin: 0;
 		background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
-		width: 480px;
+		width: 1200px;
 		min-height: auto;
 		position: relative;
-		height: auto;
+		z-index: 1;
+		animation: slideIn 0.6s ease-out;
+	}
+
+	@keyframes slideIn {
+		from {
+			opacity: 0;
+			transform: translateY(-30px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
 	}
 
 	#loginForm .title {
 		border: none;
-		border-radius: 12px;
-		padding: 20px 0;
-		margin: 0 auto 40px;
-		color: #e2e8f0;
+		border-radius: 16px;
+		padding: 35px 0;
+		margin: 0 auto 50px;
+		color: #ffffff;
 		background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
 		width: 100%;
-		font-size: 24px;
-		font-weight: bold;
-		line-height: 44px;
+		font-size: 42px;
+		font-weight: 700;
+		line-height: 1.2;
 		text-align: center;
-		box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+		box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
+		letter-spacing: 2px;
 	}
 
 	#loginForm .list-item {
-		margin: 0 auto 25px;
+		margin: 0 auto 35px;
 		display: flex;
 		width: 100%;
 		align-items: center;
@@ -83,20 +120,20 @@
 
 	#loginForm .list-item .item-label {
 		color: #94a3b8;
-		width: 64px;
-		font-size: 14px;
-		line-height: 44px;
+		width: 120px;
+		font-size: 16px;
+		line-height: 56px;
+		font-weight: 500;
 	}
 
 	#loginForm .list-item>input {
-		padding: 0 16px;
+		padding: 0 24px;
 		color: #e2e8f0;
 		width: 100%;
-		font-size: 15px;
-		border-color: #334155;
-		border-width: 0 0 2px;
-		border-style: solid;
-		height: 48px;
+		font-size: 16px;
+		border: 2px solid #334155;
+		border-radius: 12px;
+		height: 56px;
 		background: #1e293b;
 		outline: none;
 		transition: all 0.3s ease;
@@ -105,15 +142,16 @@
 	#loginForm .list-item>input:focus {
 		border-color: #3b82f6;
 		background: #0f172a;
-		box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+		box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
 	}
 
 	#loginForm .list-item>input::placeholder {
 		color: #64748b;
+		font-size: 15px;
 	}
 
 	#loginForm .list-code {
-		margin: 20px auto;
+		margin: 35px auto;
 		display: flex;
 		width: 100%;
 		align-items: center;
@@ -121,16 +159,15 @@
 	}
 
 	#loginForm .list-code input {
-		padding: 0 16px;
+		padding: 0 24px;
 		outline: none;
 		margin: 0 20px 0 0;
 		color: #e2e8f0;
-		width: calc(100% - 100px);
-		font-size: 15px;
-		border-color: #334155;
-		border-width: 0 0 2px;
-		border-style: solid;
-		height: 48px;
+		width: calc(100% - 140px);
+		font-size: 16px;
+		border: 2px solid #334155;
+		border-radius: 12px;
+		height: 56px;
 		background: #1e293b;
 		transition: all 0.3s ease;
 	}
@@ -138,63 +175,85 @@
 	#loginForm .list-code input:focus {
 		border-color: #3b82f6;
 		background: #0f172a;
-		box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+		box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
 	}
 
 	#loginForm .list-code .nums {
 		cursor: pointer;
-		background: #1e293b;
+		background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
 		display: flex;
-		width: 80px;
-		border-color: #334155;
-		border-width: 0 0 2px;
+		width: 120px;
+		border: none;
+		border-radius: 12px;
 		justify-content: center;
 		align-items: center;
-		border-style: solid;
-		height: 48px;
-		color: #e2e8f0;
-		font-weight: bold;
-		letter-spacing: 3px;
+		height: 56px;
+		color: #ffffff;
+		font-weight: 600;
+		letter-spacing: 4px;
+		font-size: 24px;
+		box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 	}
 
 	#loginForm .form-group-r {
-		margin: 25px auto;
+		margin: 35px auto;
 		width: 100%;
+		display: flex;
+		justify-content: center;
+		gap: 40px;
 	}
 
 	#loginForm .form-group-r .checkbox {
-		display: inline-block;
+		display: inline-flex;
+		align-items: center;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		padding: 12px 24px;
+		border-radius: 12px;
+	}
+
+	#loginForm .form-group-r .checkbox:hover {
+		background: rgba(59, 130, 246, 0.1);
 	}
 
 	#loginForm .form-group-r .checkbox input {
-		margin: 0 4px 0;
+		margin: 0 10px 0 0;
+		width: 20px;
+		height: 20px;
+		cursor: pointer;
+		accent-color: #3b82f6;
+	}
+
+	#loginForm .form-group-r .checkbox.active {
+		background: rgba(59, 130, 246, 0.15);
 	}
 
 	#loginForm .form-group-r .checkbox.active input {
-		margin: 0 4px 0;
-		color: #3b82f6;
-		background: #3b82f6;
+		margin: 0 10px 0 0;
 	}
 
 	#loginForm .form-group-r .checkbox label {
 		color: #94a3b8;
-		font-size: 14px;
+		font-size: 16px;
+		font-weight: 500;
+		cursor: pointer;
+		user-select: none;
 	}
 
 	#loginForm .form-group-r .checkbox.active label {
 		color: #3b82f6;
-		font-size: 14px;
+		font-weight: 600;
 	}
 
 	#loginForm .form-group-l-r {
-		margin: 30px auto 0;
+		margin: 45px auto 0;
 		background: none;
 		display: flex;
 		width: 100%;
 		justify-content: center;
 		align-items: center;
 		flex-wrap: wrap;
-		gap: 12px;
+		gap: 20px;
 	}
 
 	#loginForm .form-group-l-r .btn-login {
@@ -203,51 +262,68 @@
 		padding: 0;
 		margin: 0;
 		color: #ffffff;
-		letter-spacing: 2px;
-		font-size: 18px;
-		font-weight: bold;
-		border-radius: 12px;
-		box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+		letter-spacing: 3px;
+		font-size: 20px;
+		font-weight: 600;
+		border-radius: 14px;
+		box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
 		outline: none;
 		background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
 		width: 100%;
 		position: relative;
 		text-align: center;
 		min-width: auto;
-		height: 50px;
+		height: 60px;
 		transition: all 0.3s ease;
+		overflow: hidden;
+	}
+
+	#loginForm .form-group-l-r .btn-login::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+		transition: left 0.5s ease;
 	}
 
 	#loginForm .form-group-l-r .btn-login:hover {
-		transform: translateY(-2px);
-		box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+		transform: translateY(-3px);
+		box-shadow: 0 12px 32px rgba(59, 130, 246, 0.5);
+	}
+
+	#loginForm .form-group-l-r .btn-login:hover::before {
+		left: 100%;
 	}
 
 	#loginForm .form-group-l-r .btn-register  {
 		border: 2px solid #3b82f6;
 		cursor: pointer;
-		padding: 0 20px;
+		padding: 0 32px;
 		margin: 0;
 		color: #3b82f6;
-		font-size: 14px;
-		font-weight: 500;
-		line-height: 42px;
-		border-radius: 10px;
+		font-size: 16px;
+		font-weight: 600;
+		line-height: 52px;
+		border-radius: 12px;
 		box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 		outline: none;
 		background: transparent;
 		width: auto;
-		height: 42px;
+		height: 52px;
 		transition: all 0.3s ease;
 		text-decoration: none;
 		display: inline-block;
 	}
 
 	#loginForm .form-group-l-r .btn-register:hover {
-		background: #3b82f6;
+		background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
 		color: #ffffff;
 		transform: translateY(-2px);
-		box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+		box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+		border-color: transparent;
 	}
 
 	#loginForm .form-group-l-r .btn-forget  {
@@ -257,7 +333,7 @@
 		margin: 8px 0 0;
 		color: #64748b;
 		text-decoration: none;
-		font-size: 14px;
+		font-size: 15px;
 		border-radius: 0;
 		outline: none;
 		background: none;
@@ -278,10 +354,10 @@
 		<form id="loginForm" action="" method="post">
 			<div class="title">超市采购与库存管理系统</div>
 			<div class="list-item">
-				<input type="text" id="username" name="username" placeholder="用户名" class="form-control-i" required>
+				<input type="text" id="username" name="username" placeholder="请输入用户名" class="form-control-i" required>
 			</div>
 			<div class="list-item">
-				<input type="password" name="password" placeholder="密码" class="form-control-i" required>
+				<input type="password" name="password" placeholder="请输入密码" class="form-control-i" required>
 			</div>
 
 
