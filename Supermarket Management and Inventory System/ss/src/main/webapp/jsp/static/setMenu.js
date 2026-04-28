@@ -7,48 +7,71 @@
             if(menus[i].roleName == role){
                 var menu = menus[i].backMenu;
                 for(var j=0;j<menu.length;j++){
-                    var menuItem = document.createElement('li');
-                    menuItem.setAttribute('class','nav-item dropdown');
-
-                    var itemHref = document.createElement('a');
-                    itemHref.setAttribute("class","nav-link dropdown-toggle");
-                    itemHref.setAttribute('data-toggle','dropdown');
-                    itemHref.setAttribute('href','#');
-                    itemHref.setAttribute("role","button");
-                    itemHref.setAttribute("aria-haspopup","true");
-                    itemHref.setAttribute("aria-expanded","false");
-                    itemHref.innerHTML = menu[j].menu;
-
-                    menuItem.appendChild(itemHref);
-
-                    var menuChildDiv = document.createElement('div');
-                    menuChildDiv.setAttribute('class','dropdown-menu');
-
                     var menuChild = menu[j].child;
 
-                    var secondMenuName = "";
-                    for(var k=0;k<menuChild.length;k++){
-                        var menuChildHref = document.createElement('a');
-                        menuChildHref.setAttribute("class","dropdown-item");
-                        if(secondMenuName == menuChild[k].tableName && secondMenuName != ""){
-                            var childHrefAttr = "${pageContext.request.contextPath}/jsp/modules/" + menuChild[k].tableName + "/graph.jsp" ;
+                    if(menuChild.length == 1){
+                        var menuItem = document.createElement('li');
+                        menuItem.setAttribute('class','nav-item');
 
-                        }else{
-                            var childHrefAttr = "" ;
-                            if(menuChild[k].tableName.length>6 && menuChild[k].tableName.substr(0, 6)=="orders") {
-                                var orderStatus =  menuChild[k].tableName.substr(7);
-                                childHrefAttr = "${pageContext.request.contextPath}/jsp/modules/orders/list.jsp?orderStatus="+orderStatus ;
-                            }else {
-                                childHrefAttr = "${pageContext.request.contextPath}/jsp/modules/" + menuChild[k].tableName + "/list.jsp" ;
-                            }
-                            secondMenuName = menuChild[k].tableName;
+                        var itemHref = document.createElement('a');
+                        itemHref.setAttribute("class","nav-link");
+                        itemHref.innerHTML = menu[j].menu;
+
+                        var menuChildItem = menuChild[0];
+                        var childHrefAttr = "";
+                        if(menuChildItem.tableName.length>6 && menuChildItem.tableName.substr(0, 6)=="orders") {
+                            var orderStatus =  menuChildItem.tableName.substr(7);
+                            childHrefAttr = "${pageContext.request.contextPath}/jsp/modules/orders/list.jsp?orderStatus="+orderStatus;
+                        }else {
+                            childHrefAttr = "${pageContext.request.contextPath}/jsp/modules/" + menuChildItem.tableName + "/list.jsp";
                         }
-                        menuChildHref.setAttribute('href',childHrefAttr);
-                        menuChildHref.innerHTML =  menuChild[k].menu ;
-                        menuChildDiv.appendChild(menuChildHref);
+
+                        itemHref.setAttribute('href', childHrefAttr);
+
+                        menuItem.appendChild(itemHref);
+                        $('#navUl').append(menuItem);
+                    }else{
+                        var menuItem = document.createElement('li');
+                        menuItem.setAttribute('class','nav-item dropdown');
+
+                        var itemHref = document.createElement('a');
+                        itemHref.setAttribute("class","nav-link dropdown-toggle");
+                        itemHref.setAttribute('data-toggle','dropdown');
+                        itemHref.setAttribute('href','#');
+                        itemHref.setAttribute("role","button");
+                        itemHref.setAttribute("aria-haspopup","true");
+                        itemHref.setAttribute("aria-expanded","false");
+                        itemHref.innerHTML = menu[j].menu;
+
+                        menuItem.appendChild(itemHref);
+
+                        var menuChildDiv = document.createElement('div');
+                        menuChildDiv.setAttribute('class','dropdown-menu');
+
+                        var secondMenuName = "";
+                        for(var k=0;k<menuChild.length;k++){
+                            var menuChildHref = document.createElement('a');
+                            menuChildHref.setAttribute("class","dropdown-item");
+                            if(secondMenuName == menuChild[k].tableName && secondMenuName != ""){
+                                var childHrefAttr = "${pageContext.request.contextPath}/jsp/modules/" + menuChild[k].tableName + "/graph.jsp" ;
+
+                            }else{
+                                var childHrefAttr = "" ;
+                                if(menuChild[k].tableName.length>6 && menuChild[k].tableName.substr(0, 6)=="orders") {
+                                    var orderStatus =  menuChild[k].tableName.substr(7);
+                                    childHrefAttr = "${pageContext.request.contextPath}/jsp/modules/orders/list.jsp?orderStatus="+orderStatus ;
+                                }else {
+                                    childHrefAttr = "${pageContext.request.contextPath}/jsp/modules/" + menuChild[k].tableName + "/list.jsp" ;
+                                }
+                                secondMenuName = menuChild[k].tableName;
+                            }
+                            menuChildHref.setAttribute('href',childHrefAttr);
+                            menuChildHref.innerHTML =  menuChild[k].menu ;
+                            menuChildDiv.appendChild(menuChildHref);
+                        }
+                        menuItem.appendChild(menuChildDiv);
+                        $('#navUl').append(menuItem);
                     }
-                    menuItem.appendChild(menuChildDiv);
-                    $('#navUl').append(menuItem);
                 }
             }
         }
@@ -64,48 +87,71 @@
                     if(menus[i].roleName == role){
                         var menu = menus[i].backMenu;
                         for(var j=0;j<menu.length;j++){
-                            var menuItem = document.createElement('li');
-                            menuItem.setAttribute('class','nav-item dropdown');
-
-                            var itemHref = document.createElement('a');
-                            itemHref.setAttribute("class","nav-link dropdown-toggle");
-                            itemHref.setAttribute('data-toggle','dropdown');
-                            itemHref.setAttribute('href','#');
-                            itemHref.setAttribute("role","button");
-                            itemHref.setAttribute("aria-haspopup","true");
-                            itemHref.setAttribute("aria-expanded","false");
-                            itemHref.innerHTML = menu[j].menu;
-
-                            menuItem.appendChild(itemHref);
-
-                            var menuChildDiv = document.createElement('div');
-                            menuChildDiv.setAttribute('class','dropdown-menu');
-
                             var menuChild = menu[j].child;
 
-                            var secondMenuName = "";
-                            for(var k=0;k<menuChild.length;k++){
-                                var menuChildHref = document.createElement('a');
-                                menuChildHref.setAttribute("class","dropdown-item");
-                                if(secondMenuName == menuChild[k].tableName && secondMenuName != ""){
-                                    var childHrefAttr = "${pageContext.request.contextPath}/jsp/modules/" + menuChild[k].tableName + "/graph.jsp" ;
+                            if(menuChild.length == 1){
+                                var menuItem = document.createElement('li');
+                                menuItem.setAttribute('class','nav-item');
 
-                                }else{
-                                    var childHrefAttr = "" ;
-                                    if(menuChild[k].tableName.length>6 && menuChild[k].tableName.substr(0, 6)=="orders") {
-                                        var orderStatus =  menuChild[k].tableName.substr(7);
-                                        childHrefAttr = "${pageContext.request.contextPath}/jsp/modules/orders/list.jsp?orderStatus="+orderStatus ;
-                                    }else {
-                                        childHrefAttr = "${pageContext.request.contextPath}/jsp/modules/" + menuChild[k].tableName + "/list.jsp" ;
-                                    }
-                                    secondMenuName = menuChild[k].tableName;
+                                var itemHref = document.createElement('a');
+                                itemHref.setAttribute("class","nav-link");
+                                itemHref.innerHTML = menu[j].menu;
+
+                                var menuChildItem = menuChild[0];
+                                var childHrefAttr = "";
+                                if(menuChildItem.tableName.length>6 && menuChildItem.tableName.substr(0, 6)=="orders") {
+                                    var orderStatus =  menuChildItem.tableName.substr(7);
+                                    childHrefAttr = "${pageContext.request.contextPath}/jsp/modules/orders/list.jsp?orderStatus="+orderStatus;
+                                }else {
+                                    childHrefAttr = "${pageContext.request.contextPath}/jsp/modules/" + menuChildItem.tableName + "/list.jsp";
                                 }
-                                menuChildHref.setAttribute('href',childHrefAttr);
-                                menuChildHref.innerHTML =  menuChild[k].menu ;
-                                menuChildDiv.appendChild(menuChildHref);
+
+                                itemHref.setAttribute('href', childHrefAttr);
+
+                                menuItem.appendChild(itemHref);
+                                $('#navUl').append(menuItem);
+                            }else{
+                                var menuItem = document.createElement('li');
+                                menuItem.setAttribute('class','nav-item dropdown');
+
+                                var itemHref = document.createElement('a');
+                                itemHref.setAttribute("class","nav-link dropdown-toggle");
+                                itemHref.setAttribute('data-toggle','dropdown');
+                                itemHref.setAttribute('href','#');
+                                itemHref.setAttribute("role","button");
+                                itemHref.setAttribute("aria-haspopup","true");
+                                itemHref.setAttribute("aria-expanded","false");
+                                itemHref.innerHTML = menu[j].menu;
+
+                                menuItem.appendChild(itemHref);
+
+                                var menuChildDiv = document.createElement('div');
+                                menuChildDiv.setAttribute('class','dropdown-menu');
+
+                                var secondMenuName = "";
+                                for(var k=0;k<menuChild.length;k++){
+                                    var menuChildHref = document.createElement('a');
+                                    menuChildHref.setAttribute("class","dropdown-item");
+                                    if(secondMenuName == menuChild[k].tableName && secondMenuName != ""){
+                                        var childHrefAttr = "${pageContext.request.contextPath}/jsp/modules/" + menuChild[k].tableName + "/graph.jsp" ;
+
+                                    }else{
+                                        var childHrefAttr = "" ;
+                                        if(menuChild[k].tableName.length>6 && menuChild[k].tableName.substr(0, 6)=="orders") {
+                                            var orderStatus =  menuChild[k].tableName.substr(7);
+                                            childHrefAttr = "${pageContext.request.contextPath}/jsp/modules/orders/list.jsp?orderStatus="+orderStatus ;
+                                        }else {
+                                            childHrefAttr = "${pageContext.request.contextPath}/jsp/modules/" + menuChild[k].tableName + "/list.jsp" ;
+                                        }
+                                        secondMenuName = menuChild[k].tableName;
+                                    }
+                                    menuChildHref.setAttribute('href',childHrefAttr);
+                                    menuChildHref.innerHTML =  menuChild[k].menu ;
+                                    menuChildDiv.appendChild(menuChildHref);
+                                }
+                                menuItem.appendChild(menuChildDiv);
+                                $('#navUl').append(menuItem);
                             }
-                            menuItem.appendChild(menuChildDiv);
-                            $('#navUl').append(menuItem);
                         }
                     }
                 }
